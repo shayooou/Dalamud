@@ -15,6 +15,7 @@ using Dalamud.Game.ClientState.Actors.Types;
 using Dalamud.Game.ClientState.Actors.Types.NonPlayer;
 using Dalamud.Game.Command;
 using Dalamud.Game.Internal;
+using Dalamud.Game.Internal.File;
 using Dalamud.Game.Internal.Gui;
 using Dalamud.Game.Network;
 using Dalamud.Interface;
@@ -54,6 +55,8 @@ namespace Dalamud {
 
         private readonly string assemblyVersion = Assembly.GetAssembly(typeof(ChatHandlers)).GetName().Version.ToString();
 
+        private readonly ResourceManager ResMgr;
+
         public Dalamud(DalamudStartInfo info) {
             this.StartInfo = info;
             this.Configuration = DalamudConfiguration.Load(info.ConfigurationPath);
@@ -87,10 +90,14 @@ namespace Dalamud {
             this.InterfaceManager = new InterfaceManager(this, this.SigScanner);
             this.InterfaceManager.OnDraw += BuildDalamudUi;
             this.InterfaceManager.Enable();
+
+            this.ResMgr = new ResourceManager(this, this.SigScanner);
         }
 
         public void Start() {
             Framework.Enable();
+
+            this.ResMgr.Enable();
 
             this.BotManager.Start();
 
@@ -137,6 +144,7 @@ namespace Dalamud {
             this.WinSock2.Dispose();
 
             this.SigScanner.Dispose();
+            this.ResMgr.Dispose();
         }
 
         #region Interface

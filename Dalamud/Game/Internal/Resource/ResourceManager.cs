@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.MemoryMappedFiles;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -25,10 +26,10 @@ namespace Dalamud.Game.Internal.File
 
         class ResourceHandleHookInfo {
             public string Path { get; set; }
-            public Stream DetourFile { get; set; }
+            public MemoryMappedFile DetourFile { get; set; }
         }
 
-        private Dictionary<IntPtr, ResourceHandleHookInfo> resourceHookMap = new Dictionary<IntPtr, ResourceHandleHookInfo>();
+        private Dictionary<ResourceHandlePtr, ResourceHandleHookInfo> resourceHookMap = new Dictionary<ResourceHandlePtr, ResourceHandleHookInfo>();
 
         public ResourceManager(Dalamud dalamud, SigScanner scanner) {
             this.dalamud = dalamud;
@@ -66,10 +67,23 @@ namespace Dalamud.Game.Internal.File
             try {
                 var path = Marshal.PtrToStringAnsi(a5);
 
-                var resourceHandle = this.getResourceAsyncHook.Original(manager, a2, a3, a4, IntPtr.Zero, a6, a7);
+                if (path == "music/ex2/BGM_EX2_System_Title.scd") {
+                    var b = Marshal.StringToHGlobalAnsi("music/ex3/BGM_EX3_Ban_03.scd");
+                    a5 = b;
+                    Marshal.FreeHGlobal(a5);
+                }
+
+                if (path == "ui/uld/Title_Logo400.uld")
+                {
+                    var b = Marshal.StringToHGlobalAnsi("ui/uld/Title_Logo300.uld");
+                    a5 = b;
+                    Marshal.FreeHGlobal(a5);
+                }
+
+                var resourceHandle = this.getResourceAsyncHook.Original(manager, a2, a3, a4, a5, a6, a7);
                 //var resourceHandle = IntPtr.Zero;
 
-                Log.Verbose("GetResourceAsync CALL - this:{0} a2:{1} a3:{2} a4:{3} a5:{4} a6:{5} a7:{6} => RET:{7}", manager, a2, a3, a4, a5, a6, a7, resourceHandle);
+                Log.Verbose("GetResourceAsync CALL - this:{0} a2:{1} a3:{2} a4:{3} a5:{4} a6:{5} a7:{6} => RET:{7}", manager, a2, a3, a4, a5, a6, a7, resourceHandle.ToInt64().ToString("X"));
 
                 Log.Verbose($"->{path}");
 
@@ -104,7 +118,7 @@ namespace Dalamud.Game.Internal.File
 
                 Log.Verbose($"->{path}");
 
-                HandleGetResourceHookAcquire(resourceHandle, path);
+                //HandleGetResourceHookAcquire(resourceHandle, path);
 
                 return resourceHandle;
             } catch (Exception ex) {
@@ -114,13 +128,23 @@ namespace Dalamud.Game.Internal.File
             }
         }
 
-        private void HandleGetResourceHookAcquire(IntPtr handlePtr, string path) {
+        private void HandleGetResourceHookAcquire(IntPtr pResourceHandle, string path) {
             if (FilePathHasInvalidChars(path))
                 return;
 
-            if (this.resourceHookMap.ContainsKey(handlePtr)) {
-                Log.Verbose($"-> Handle {handlePtr.ToInt64():X}({path}) was cached!");
-                return;
+            //DumpMem(pResourceHandle);
+
+            //if (this.resourceHookMap.Any(h => h.Key.Pointer == pResourceHandle)) {
+            //    Log.Verbose($"-> Handle {pResourceHandle.ToInt64():X}({path}) was cached!");
+            //    return;
+            //}
+
+            var resHandlePtr = new ResourceHandlePtr(pResourceHandle);
+
+            Log.Verbose($"FROM HANDLE: {resHandlePtr.Path}");
+
+            if (path == "music/ex2/BGM_EX2_System_Title.scd") {
+                resHandlePtr.Path = "music/ex2/BGM_EX2_Town_K_Day.scd";
             }
 
             var hookInfo = new ResourceHandleHookInfo {
@@ -128,13 +152,47 @@ namespace Dalamud.Game.Internal.File
             };
 
             var hookPath = Path.Combine(this.dalamud.StartInfo.WorkingDirectory, "ResourceHook", path);
+            Log.Verbose("-> Trying {0}", hookPath);
 
             if (System.IO.File.Exists(hookPath)) {
-                hookInfo.DetourFile = new FileStream(hookPath, FileMode.Open);
+                hookInfo.DetourFile = MemoryMappedFile.OpenExisting(hookPath);
                 Log.Verbose("-> Added resource hook detour at {0}", hookPath);
             }
 
-            this.resourceHookMap.Add(handlePtr, hookInfo);
+            //this.resourceHookMap.Add(resHandlePtr, hookInfo);
+        }
+
+        internal class ResourceHandlePtr {
+            public IntPtr Pointer { get; private set; }
+
+            public ResourceHandlePtr(IntPtr pResourceHandle) {
+                this.Pointer = pResourceHandle;
+            }
+
+            public string Path {
+                get => Marshal.PtrToStringAnsi(Marshal.ReadIntPtr(Pointer + 0x48));
+                set {
+                    var newstr = Encoding.UTF8.GetBytes(value);
+                    var a = new byte[newstr.Length + 1];
+                    Array.Copy(newstr, a, newstr.Length);
+                    Marshal.Copy(a, 0, Marshal.ReadIntPtr(Pointer + 0x48), a.Length);
+                }
+            }
+
+            public byte HState {
+                get => Marshal.ReadByte(Pointer, 0xA0);
+                set => Marshal.WriteByte(Pointer, 0xA0, value);
+            }
+            public byte RState
+            {
+                get => Marshal.ReadByte(Pointer, 0xA1);
+                set => Marshal.WriteByte(Pointer, 0xA1, value);
+            }
+            public IntPtr Data
+            {
+                get => Marshal.ReadIntPtr(Pointer, 0xA8);
+                set => Marshal.WriteIntPtr(Pointer, 0xA8, value);
+            }
         }
 
         public static bool FilePathHasInvalidChars(string path)
