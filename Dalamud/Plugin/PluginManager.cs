@@ -12,18 +12,36 @@ namespace Dalamud.Plugin
     public class PluginManager {
         private readonly Dalamud dalamud;
         private readonly string pluginDirectory;
-        private readonly string devPluginDirectory;
 
         private readonly PluginConfigurations pluginConfigs;
 
         private readonly Type interfaceType = typeof(IDalamudPlugin);
 
-        public readonly List<(IDalamudPlugin Plugin, PluginDefinition Definition, DalamudPluginInterface PluginInterface)> Plugins = new List<(IDalamudPlugin plugin, PluginDefinition def, DalamudPluginInterface PluginInterface)>();
+        public enum PluginLoadState {
+            Unknown,
+            Disabled,
+            NotApplicable,
+            InitFailed,
+            Loaded
+        }
 
-        public PluginManager(Dalamud dalamud, string pluginDirectory, string devPluginDirectory) {
+        public class LoadedPlugin {
+            public IDalamudPlugin PluginInstance { get; set; }
+            public PluginDefinition Definition { get; set; }
+            public DalamudPluginInterface PluginInterface { get; set; }
+            public PluginLoadState LoadState { get; set; }
+        }
+
+        public readonly List<LoadedPlugin> Plugins = new List<LoadedPlugin>();
+
+        public PluginManager(Dalamud dalamud, string pluginDirectory) {
             this.dalamud = dalamud;
             this.pluginDirectory = pluginDirectory;
-            this.devPluginDirectory = devPluginDirectory;
+
+            if (dalamud.Configuration.InstalledPlugins == null) {
+                dalamud.Configuration.InstalledPlugins = new List<DalamudConfiguration.ConfigPlugin>();
+                this.dalamud.Configuration.Save();
+            }
 
             this.pluginConfigs = new PluginConfigurations(Path.Combine(Path.GetDirectoryName(dalamud.StartInfo.ConfigurationPath), "pluginConfigs"));
 
@@ -32,12 +50,12 @@ namespace Dalamud.Plugin
             // This handler should only be invoked on things that fail regular lookups, but it *is* global to this appdomain
             AppDomain.CurrentDomain.AssemblyResolve += (object source, ResolveEventArgs e) =>
             {
-                Log.Debug($"Resolving missing assembly {e.Name}");
+                Log.Debug($"[PLUGINM] Resolving missing assembly {e.Name}");
                 // This looks weird but I'm pretty sure it's actually correct.  Pretty sure.  Probably.
                 var assemblyPath = Path.Combine(Path.GetDirectoryName(e.RequestingAssembly.Location), new AssemblyName(e.Name).Name + ".dll");
                 if (!File.Exists(assemblyPath))
                 {
-                    Log.Error($"Assembly not found at {assemblyPath}");
+                    Log.Error($"[PLUGINM] Assembly not found at {assemblyPath}");
                     return null;
                 }
                 return Assembly.LoadFrom(assemblyPath);
@@ -48,145 +66,152 @@ namespace Dalamud.Plugin
             if (this.Plugins == null)
                 return;
 
-            for (var i = 0; i < this.Plugins.Count; i++) {
-                this.Plugins[i].Plugin.Dispose();
+            foreach (var loadedPlugin in this.Plugins) {
+                loadedPlugin.PluginInstance.Dispose();
             }
 
             this.Plugins.Clear();
         }
 
+        public LoadedPlugin GetLoadedPlugin(string internalName) =>
+            this.Plugins.FirstOrDefault(x => x.Definition.InternalName == internalName);
+
         public void LoadPlugins() {
-            LoadPluginsAt(new DirectoryInfo(this.pluginDirectory), false);
-            LoadPluginsAt(new DirectoryInfo(this.devPluginDirectory), true);
+            LoadInstalledPlugins();
         }
 
-        public void DisablePlugin(PluginDefinition definition) {
+        public bool DisposePlugin(string internalName, bool removeFromState = false) {
             var thisPlugin = this.Plugins.Where(x => x.Definition != null)
-                                 .First(x => x.Definition.InternalName == definition.InternalName);
+                                 .FirstOrDefault(x => x.Definition.InternalName == internalName);
 
-            var outputDir = new DirectoryInfo(Path.Combine(this.pluginDirectory, definition.InternalName, definition.AssemblyVersion));
-
-            // Need to do it with Open so the file handle gets closed immediately
-            // TODO: Don't use the ".disabled" crap, do it in a config
-            var disabledFile = File.Open(Path.Combine(outputDir.FullName, ".disabled"), FileMode.Create);
-            disabledFile.Close();
-
-            thisPlugin.Plugin.Dispose();
-
-            this.Plugins.Remove(thisPlugin);
-        }
-
-        public bool LoadPluginFromAssembly(FileInfo dllFile, bool raw) {
-            Log.Information("Loading plugin at {0}", dllFile.Directory.FullName);
-
-            // If this entire folder has been marked as a disabled plugin, don't even try to load anything
-            var disabledFile = new FileInfo(Path.Combine(dllFile.Directory.FullName, ".disabled"));
-            if (disabledFile.Exists && !raw)    // should raw/dev plugins really not respect this?
-            {
-                Log.Information("Plugin {0} is disabled.", dllFile.FullName);
-                return false;
-            }
-
-            // read the plugin def if present - again, fail before actually trying to load the dll if there is a problem
-            var defJsonFile = new FileInfo(Path.Combine(dllFile.Directory.FullName, $"{Path.GetFileNameWithoutExtension(dllFile.Name)}.json"));
-
-            PluginDefinition pluginDef = null;
-            // load the definition if it exists, even for raw/developer plugins
-            if (defJsonFile.Exists)
-            {
-                Log.Information("Loading definition for plugin DLL {0}", dllFile.FullName);
-
-                pluginDef =
-                    JsonConvert.DeserializeObject<PluginDefinition>(
-                        File.ReadAllText(defJsonFile.FullName));
-
-                if (pluginDef.ApplicableVersion != this.dalamud.StartInfo.GameVersion && pluginDef.ApplicableVersion != "any")
-                {
-                    Log.Information("Plugin {0} has not applicable version.", dllFile.FullName);
-                    return false;
+            if (thisPlugin?.PluginInstance != null) {
+                thisPlugin.PluginInstance.Dispose();
+                if (!removeFromState) {
+                    thisPlugin.LoadState = PluginLoadState.Disabled;
+                } else {
+                    this.Plugins.Remove(thisPlugin);
                 }
+
+                return true;
             }
-            // but developer plugins don't require one to load
-            else if (!raw)
-            {
-                Log.Information("Plugin DLL {0} has no definition.", dllFile.FullName);
-                return false;
-            }
-
-            // TODO: given that it exists, the pluginDef's InternalName should probably be used
-            // as the actual assembly to load
-            // But plugins should also probably be loaded by directory and not by looking for every dll
-
-            Log.Information("Loading assembly at {0}", dllFile);
-
-            // Assembly.Load() by name here will not load multiple versions with the same name, in the case of updates
-            var pluginAssembly = Assembly.LoadFile(dllFile.FullName);
-
-            if (pluginAssembly != null)
-            {
-                Log.Information("Loading types for {0}", pluginAssembly.FullName);
-                var types = pluginAssembly.GetTypes();
-                foreach (var type in types)
-                {
-                    if (type.IsInterface || type.IsAbstract)
-                    {
-                        continue;
-                    }
-
-                    if (type.GetInterface(interfaceType.FullName) != null)
-                    {
-                        if (this.Plugins.Any(x => x.Plugin.GetType().Assembly.GetName().Name == type.Assembly.GetName().Name)) {
-                            Log.Error("Duplicate plugin found: {0}", dllFile.FullName);
-                            return false;
-                        }
-
-                        var plugin = (IDalamudPlugin)Activator.CreateInstance(type);
-
-                        // this happens for raw plugins that don't specify a PluginDefinition - just generate a dummy one to avoid crashes anywhere
-                        if (pluginDef == null)
-                        {
-                            pluginDef = new PluginDefinition
-                            {
-                                Author = "developer",
-                                Name = plugin.Name,
-                                InternalName = Path.GetFileNameWithoutExtension(dllFile.Name),
-                                AssemblyVersion = plugin.GetType().Assembly.GetName().Version.ToString(),
-                                Description = "",
-                                ApplicableVersion = "any",
-                                IsHide = false
-                            };
-                        }
-
-                        var dalamudInterface = new DalamudPluginInterface(this.dalamud, type.Assembly.GetName().Name, this.pluginConfigs);
-                        plugin.Initialize(dalamudInterface);
-                        Log.Information("Loaded plugin: {0}", plugin.Name);
-                        this.Plugins.Add((plugin, pluginDef, dalamudInterface));
-
-                        return true;
-                    }
-                }
-            }
-
-            Log.Information("Plugin DLL {0} has no plugin interface.", dllFile.FullName);
 
             return false;
         }
 
-        private void LoadPluginsAt(DirectoryInfo folder, bool raw) {
-            if (folder.Exists)
-            { 
-                Log.Information("Loading plugins at {0}", folder);
+        public bool LoadPluginFromAssembly(FileInfo dllFile, PluginDefinition definition) {
+            Log.Information("[PLUGINM] Loading assembly at {0}", dllFile);
 
-                var pluginDlls = folder.GetFiles("*.dll", SearchOption.AllDirectories);
+            // Assembly.Load() by name here will not load multiple versions with the same name, in the case of updates
+            var pluginAssembly = Assembly.LoadFile(dllFile.FullName);
 
-                foreach (var dllFile in pluginDlls) {
-                    try {
-                        LoadPluginFromAssembly(dllFile, raw);
-                    } catch (Exception ex) {
-                        Log.Error(ex, $"Plugin load for {dllFile.FullName} failed.");
+            Log.Information("[PLUGINM] Loading types for {0}", pluginAssembly.FullName);
+            var types = pluginAssembly.GetTypes();
+            foreach (var type in types)
+            {
+                if (type.IsInterface || type.IsAbstract)
+                {
+                    continue;
+                }
+
+                if (type.GetInterface(interfaceType.FullName) != null)
+                {
+                    var plugin = (IDalamudPlugin)Activator.CreateInstance(type);
+
+                    try
+                    {
+                        var dalamudInterface = new DalamudPluginInterface(this.dalamud, type.Assembly.GetName().Name, this.pluginConfigs);
+                        plugin.Initialize(dalamudInterface);
+                        Log.Information("[PLUGINM] Loaded plugin: {0}", plugin.Name);
+
+                        this.Plugins.Add(new LoadedPlugin
+                        {
+                            PluginInstance = plugin,
+                            PluginInterface = dalamudInterface,
+                            Definition = definition,
+                            LoadState = PluginLoadState.Loaded
+                        });
+
+                        return true;
+                    }
+                    catch (Exception e)
+                    {
+                        Log.Error(e, "[PLUGINM] Failed to initialize plugin.");
+
+                        this.Plugins.Add(new LoadedPlugin
+                        {
+                            Definition = definition,
+                            LoadState = PluginLoadState.InitFailed
+                        });
                     }
                 }
             }
+
+            Log.Information("[PLUGINM] Plugin DLL {0} has no plugin interface.", dllFile.FullName);
+
+            return false;
+        }
+
+        private void LoadInstalledPlugins() {
+            foreach (var installedPlugin in this.dalamud.Configuration.InstalledPlugins) {
+                var pluginFile = new FileInfo(Path.Combine(this.pluginDirectory, installedPlugin.InternalName,
+                                                           $"{installedPlugin.InternalName}.dll"));
+
+                if (!pluginFile.Exists) {
+                    Log.Error("[PLUGINM] InstalledPlugin {0} did not have a DLL but was enabled.");
+                    continue;
+                }
+
+                var pluginDef = GetLocalDefinition(installedPlugin.InternalName);
+                // load the definition if it exists, even for raw/developer plugins
+                if (pluginDef != null)
+                {
+                    if (pluginDef.ApplicableVersion != this.dalamud.StartInfo.GameVersion && pluginDef.ApplicableVersion != "any")
+                    {
+                        this.Plugins.Add(new LoadedPlugin
+                        {
+                            Definition = pluginDef,
+                            LoadState = PluginLoadState.NotApplicable
+                        });
+
+                        Log.Information("[PLUGINM] Plugin {0} has not applicable version.", pluginFile.FullName);
+                        continue;
+                    }
+                }
+                else
+                {
+                    Log.Information("[PLUGINM] Plugin DLL {0} has no definition.", pluginFile.FullName);
+                    continue;
+                }
+
+                if (!installedPlugin.IsEnabled) {
+                    this.Plugins.Add(new LoadedPlugin
+                    {
+                        Definition = pluginDef,
+                        LoadState = PluginLoadState.Disabled
+                    });
+                    Log.Information("[PLUGINM] Plugin {0} was disabled.", pluginFile.FullName);
+                    continue;
+                }
+
+                LoadPluginFromAssembly(pluginFile, pluginDef);
+            }
+        }
+
+        public PluginDefinition GetLocalDefinition(string internalName) {
+            // read the plugin def if present - again, fail before actually trying to load the dll if there is a problem
+            var defJsonFile = new FileInfo(Path.Combine(this.pluginDirectory, internalName,
+                                                        $"{internalName}.json"));
+
+            Log.Debug("[PLUGINM] Loading definition for plugin {0}", defJsonFile.FullName);
+
+            // load the definition if it exists, even for raw/developer plugins
+            if (defJsonFile.Exists) {
+                
+                return JsonConvert.DeserializeObject<PluginDefinition>(
+                    File.ReadAllText(defJsonFile.FullName));
+            }
+
+            return null;
         }
     }
 }

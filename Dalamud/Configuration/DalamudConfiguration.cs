@@ -31,6 +31,14 @@ namespace Dalamud
 
         public string LastVersion { get; set; }
 
+        public class ConfigPlugin
+        {
+            public bool IsEnabled { get; set; }
+            public string InternalName { get; set; }
+        }
+
+        public List<ConfigPlugin> InstalledPlugins { get; set; }
+
         [JsonIgnore]
         public string ConfigPath;
 

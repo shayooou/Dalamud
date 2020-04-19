@@ -5,6 +5,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Net;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -16,7 +17,7 @@ namespace Dalamud.Plugin
     {
         private const string PluginRepoBaseUrl = "https://goaaats.github.io/DalamudPlugins/";
 
-        private PluginManager manager;
+        private readonly Dalamud dalamud;
         private string pluginDirectory;
         public ReadOnlyCollection<PluginDefinition> PluginMaster;
 
@@ -29,9 +30,9 @@ namespace Dalamud.Plugin
 
         public InitializationState State { get; private set; }
 
-        public PluginRepository(PluginManager manager, string pluginDirectory, string gameVersion)
+        public PluginRepository(Dalamud dalamud, string pluginDirectory, string gameVersion)
         {
-            this.manager = manager;
+            this.dalamud = dalamud;
             this.pluginDirectory = pluginDirectory;
 
             State = InitializationState.InProgress;
@@ -58,46 +59,72 @@ namespace Dalamud.Plugin
             }
         }
 
-        public bool InstallPlugin(PluginDefinition definition) {
+        public bool DisablePlugin(string internalName) {
+            this.dalamud.Configuration.InstalledPlugins.First(x => x.InternalName == internalName).IsEnabled = false;
+            this.dalamud.Configuration.Save();
+
+            return this.dalamud.PluginManager.DisposePlugin(internalName);
+        }
+
+        public bool InstallPlugin(string internalName, bool forceReinstall = false) {
             try
             {
-                var outputDir = new DirectoryInfo(Path.Combine(this.pluginDirectory, definition.InternalName, definition.AssemblyVersion));
-                var dllFile = new FileInfo(Path.Combine(outputDir.FullName, $"{definition.InternalName}.dll"));
-                var disabledFile = new FileInfo(Path.Combine(outputDir.FullName, ".disabled"));
+                var outputDir = new DirectoryInfo(Path.Combine(this.pluginDirectory, internalName));
+                var dllFile = new FileInfo(Path.Combine(outputDir.FullName, $"{internalName}.dll"));
 
-                if (dllFile.Exists)
-                {
-                    if (disabledFile.Exists)
-                        disabledFile.Delete();
-
-                    return this.manager.LoadPluginFromAssembly(dllFile, false);
+                if (dllFile.Exists && !forceReinstall) {
+                    AddOrEnableToConfig(internalName);
+                    Log.Information("[PLUGINR] Plugin was local.");
+                    return this.dalamud.PluginManager.LoadPluginFromAssembly(dllFile, this.dalamud.PluginManager.GetLocalDefinition(internalName));
                 }
 
                 if (outputDir.Exists)
                     outputDir.Delete(true);
+
                 outputDir.Create();
 
                 var path = Path.GetTempFileName();
-                Log.Information("Downloading plugin to {0}", path);
+                Log.Information("[PLUGINR] Downloading plugin to {0}", path);
                 using var client = new WebClient();
-                client.DownloadFile(PluginRepoBaseUrl + $"/plugins/{definition.InternalName}/latest.zip", path);
+                client.DownloadFile(PluginRepoBaseUrl + $"/plugins/{internalName}/latest.zip", path);
 
-                Log.Information("Extracting to {0}", outputDir);
+                Log.Information("[PLUGINR] Extracting to {0}", outputDir);
 
                 ZipFile.ExtractToDirectory(path, outputDir.FullName);
 
-                return this.manager.LoadPluginFromAssembly(dllFile, false);
+                AddOrEnableToConfig(internalName);
+
+                Log.Information("[PLUGINR] Plugin installed remotely.");
+
+                return this.dalamud.PluginManager.LoadPluginFromAssembly(dllFile, this.PluginMaster.First(x => x.InternalName == internalName));
             }
             catch (Exception e)
             {
-                Log.Error(e, "Plugin download failed hard.");
+                Log.Error(e, "[PLUGINR] Plugin download failed hard.");
                 return false;
             }
         }
 
+        private void AddOrEnableToConfig(string internalName) {
+            if (this.dalamud.Configuration.InstalledPlugins.All(x => x.InternalName != internalName))
+            {
+                this.dalamud.Configuration.InstalledPlugins.Add(new DalamudConfiguration.ConfigPlugin
+                {
+                    InternalName = internalName,
+                    IsEnabled = true
+                });
+            }
+            else
+            {
+                this.dalamud.Configuration.InstalledPlugins.First(x => x.InternalName == internalName).IsEnabled = true;
+            }
+
+            this.dalamud.Configuration.Save();
+        }
+
         public (bool Success, int UpdatedCount) UpdatePlugins(bool dryRun = false)
         {
-            Log.Information("Starting plugin update... dry:{0}", dryRun);
+            Log.Information("[PLUGINR] Starting plugin update... dry:{0}", dryRun);
 
             var updatedCount = 0;
             var hasError = false;
@@ -107,22 +134,11 @@ namespace Dalamud.Plugin
                 var pluginsDirectory = new DirectoryInfo(this.pluginDirectory);
                 foreach (var installed in pluginsDirectory.GetDirectories())
                 {
-                    var versions = installed.GetDirectories();
-
-                    if (versions.Length == 0)
-                    {
-                        Log.Information("Has no versions: {0}", installed.FullName);
-                        continue;
-                    }
-
-                    var sortedVersions = versions.OrderBy(x => int.Parse(x.Name.Replace(".", "")));
-                    var latest = sortedVersions.Last();
-
-                    var localInfoFile = new FileInfo(Path.Combine(latest.FullName, $"{installed.Name}.json"));
+                    var localInfoFile = new FileInfo(Path.Combine(installed.FullName, $"{installed.Name}.json"));
 
                     if (!localInfoFile.Exists)
                     {
-                        Log.Information("Has no definition: {0}", localInfoFile.FullName);
+                        Log.Information("[PLUGINR] Has no definition: {0}", localInfoFile.FullName);
                         continue;
                     }
 
@@ -132,43 +148,34 @@ namespace Dalamud.Plugin
 
                     if (remoteInfo == null)
                     {
-                        Log.Information("Is not in pluginmaster: {0}", info.Name);
+                        Log.Information("[PLUGINR] Is not in pluginmaster: {0}", info.Name);
                         continue;
                     }
 
                     if (remoteInfo.AssemblyVersion != info.AssemblyVersion)
                     {
-                        Log.Information("Eligible for update: {0}", remoteInfo.InternalName);
+                        Log.Information("[PLUGINR] Eligible for update: {0}", remoteInfo.InternalName);
 
                         // DisablePlugin() below immediately creates a .disabled file anyway, but will fail
                         // with an exception if we try to do it twice in row like this
 
                         if (!dryRun)
                         {
-                            // Try to disable plugin if it is loaded
+                            // Try to dispose plugin if it is loaded
                             try
                             {
-                                this.manager.DisablePlugin(info);
+                                if (!this.dalamud.PluginManager.DisposePlugin(info.InternalName, true))
+                                    Log.Information("[PLUGINR] Plugin was not loaded.");
                             }
                             catch (Exception ex)
                             {
-                                Log.Error(ex, "Plugin disable failed");
+                                Log.Error(ex, "[PLUGINR] Plugin dispose failed.");
                                 hasError = true;
                             }
 
-                            try {
-                                // Just to be safe
-                                foreach (var sortedVersion in sortedVersions)
-                                {
-                                    var disabledFile = new FileInfo(Path.Combine(sortedVersion.FullName, ".disabled"));
-                                    if (!disabledFile.Exists)
-                                        disabledFile.Create();
-                                }
-                            } catch (Exception ex) {
-                                Log.Error(ex, "Plugin disable failed");
-                            }
+                            Log.Information("[PLUGINR] Plugin disposed.");
 
-                            var installSuccess = InstallPlugin(remoteInfo);
+                            var installSuccess = InstallPlugin(remoteInfo.InternalName, true);
 
                             if (installSuccess)
                             {
@@ -176,7 +183,7 @@ namespace Dalamud.Plugin
                             }
                             else
                             {
-                                Log.Error("InstallPlugin failed.");
+                                Log.Error("[PLUGINR] InstallPlugin failed.");
                                 hasError = true;
                             }
                         }
@@ -186,17 +193,17 @@ namespace Dalamud.Plugin
                     }
                     else
                     {
-                        Log.Information("Up to date: {0}", remoteInfo.InternalName);
+                        Log.Information("[PLUGINR] Up to date: {0}", remoteInfo.InternalName);
                     }
                 }
             }
             catch (Exception e)
             {
-                Log.Error(e, "Plugin update failed hard.");
+                Log.Error(e, "[PLUGINR] Plugin update failed hard.");
                 hasError = true;
             }
 
-            Log.Information("Plugin update OK.");
+            Log.Information("[PLUGINR] Plugin update OK.");
 
             return (!hasError, updatedCount);
         }

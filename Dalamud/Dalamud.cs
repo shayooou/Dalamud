@@ -129,10 +129,10 @@ namespace Dalamud {
             this.BotManager.Start();
 
             try {
-                this.PluginManager = new PluginManager(this, this.StartInfo.PluginDirectory, this.StartInfo.DefaultPluginDirectory);
+                this.PluginManager = new PluginManager(this, this.StartInfo.PluginDirectory);
                 this.PluginManager.LoadPlugins();
 
-                PluginRepository = new PluginRepository(PluginManager, this.StartInfo.PluginDirectory, this.StartInfo.GameVersion);
+                PluginRepository = new PluginRepository(this, this.StartInfo.PluginDirectory, this.StartInfo.GameVersion);
             } catch (Exception ex) {
                 Log.Error(ex, "Plugin load failed.");
             }
@@ -254,14 +254,8 @@ namespace Dalamud {
                     {
                         if (ImGui.MenuItem("Open Plugin installer"))
                         {
-                            this.pluginWindow = new PluginInstallerWindow(this.PluginManager, this.PluginRepository, this.StartInfo.GameVersion);
+                            this.pluginWindow = new PluginInstallerWindow(this, this.StartInfo.GameVersion);
                             this.isImguiDrawPluginWindow = true;
-                        }
-                        if (ImGui.MenuItem("Print plugin info")) {
-                            foreach (var plugin in this.PluginManager.Plugins) {
-                                // TODO: some more here, state maybe?
-                                Log.Information($"{plugin.Plugin.Name}");
-                            }
                         }
                         if (ImGui.MenuItem("Reload plugins"))
                         {
@@ -621,7 +615,7 @@ namespace Dalamud {
         }
 
         private void OnOpenInstallerCommand(string command, string arguments) {
-            this.pluginWindow = new PluginInstallerWindow(this.PluginManager, PluginRepository, this.StartInfo.GameVersion);
+            this.pluginWindow = new PluginInstallerWindow(this, this.StartInfo.GameVersion);
             this.isImguiDrawPluginWindow = true;
         }
 

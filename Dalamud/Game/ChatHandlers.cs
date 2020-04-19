@@ -107,7 +107,8 @@ namespace Dalamud.Game {
                 this.dalamud.Framework.Gui.Chat.Print(string.Format(Loc.Localize("DalamudWelcome", "XIVLauncher in-game addon v{0} loaded."), assemblyVersion));
 
                 foreach (var plugin in this.dalamud.PluginManager.Plugins) {
-                    this.dalamud.Framework.Gui.Chat.Print(string.Format(Loc.Localize("DalamudPluginLoaded", "    》 {0} v{1} loaded."), plugin.Plugin.Name, plugin.Plugin.GetType().Assembly.GetName().Version));
+                    if (plugin.LoadState == PluginManager.PluginLoadState.Loaded)
+                        this.dalamud.Framework.Gui.Chat.Print(string.Format(Loc.Localize("DalamudPluginLoaded", "    》 {0} v{1} loaded."), plugin.Definition.Name, plugin.Definition.AssemblyVersion));
                 }
 
                 this.hasSeenLoadingMsg = true;

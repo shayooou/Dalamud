@@ -86,8 +86,6 @@ namespace Dalamud.Injector {
                                     @"\XIVLauncher\dalamudConfig.json",
                 PluginDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
                                   @"\XIVLauncher\installedPlugins",
-                DefaultPluginDirectory = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) +
-                                         @"\XIVLauncher\devPlugins",
 
                 GameVersion = File.ReadAllText(@"C:\Program Files (x86)\SquareEnix\FINAL FANTASY XIV - A Realm Reborn\game\ffxivgame.ver"),
                 Language = ClientLanguage.English
@@ -96,7 +94,6 @@ namespace Dalamud.Injector {
             Console.WriteLine("Creating a StartInfo with:\n" +
                               $"ConfigurationPath: {startInfo.ConfigurationPath}\n" +
                               $"PluginDirectory: {startInfo.PluginDirectory}\n" +
-                              $"DefaultPluginDirectory: {startInfo.DefaultPluginDirectory}\n" +
                               $"Language: {startInfo.Language}\n" +
                               $"GameVersion: {startInfo.GameVersion}");
 
