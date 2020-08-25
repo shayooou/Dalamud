@@ -1,0 +1,17 @@
+{
+  "$type": "TeleporterPlugin.Configuration, TeleporterPlugin",
+  "Version": 0,
+  "TeleporterLanguage": 4,
+  "SkipTicketPopup": false,
+  "UseGilThreshold": false,
+  "AllowPartialMatch": false,
+  "GilThreshold": 999,
+  "AliasList": [
+    {
+      "$type": "TeleporterPlugin.Objects.TeleportAlias, TeleporterPlugin",
+      "Alias": "q",
+      "Aetheryte": "蛇行枝",
+      "TeleportType": 0
+    }
+  ]
+}

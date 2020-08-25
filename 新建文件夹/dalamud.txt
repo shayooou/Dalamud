@@ -1,0 +1,976 @@
+﻿2020-08-11 17:41:10.405 +08:00 [INF] Initializing a session..
+2020-08-11 17:41:11.116 +08:00 [INF] Starting a session..
+2020-08-11 17:41:11.148 +08:00 [INF] Trying to set up Loc for culture zh
+2020-08-11 17:41:11.160 +08:00 [ERR] Could not get SwapChain address via sig method, falling back to vtable...
+System.Exception: Skip SwapChain sig search.
+   在 Dalamud.Interface.InterfaceManager..ctor(Dalamud dalamud, SigScanner scanner)
+2020-08-11 17:41:11.790 +08:00 [INF] Lumina is ready: E:\ff14\最终幻想XIV\game\sqpack
+2020-08-11 17:41:11.865 +08:00 [ERR] Discord token is null or empty.
+2020-08-11 17:41:11.869 +08:00 [INF] Loading plugins at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins
+2020-08-11 17:41:11.872 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\FPSPlugin\1.4.0.0
+2020-08-11 17:41:11.872 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\FPSPlugin\1.4.0.0\FPSPlugin.dll
+2020-08-11 17:41:11.872 +08:00 [INF] Loading assembly at FPSPlugin.dll
+2020-08-11 17:41:11.873 +08:00 [INF] Loading types for FPSPlugin, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 17:41:11.954 +08:00 [INF] Loaded plugin: FPS Plugin
+2020-08-11 17:41:11.955 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\Globetrotter\1.0.1.0
+2020-08-11 17:41:11.955 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\Globetrotter\1.0.1.0\Globetrotter.dll
+2020-08-11 17:41:11.955 +08:00 [INF] Loading assembly at Globetrotter.dll
+2020-08-11 17:41:11.955 +08:00 [INF] Loading types for Globetrotter, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 17:41:11.958 +08:00 [INF] Loaded plugin: Globetrotter
+2020-08-11 17:41:11.958 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\ItemSearchPlugin\1.5.3.0
+2020-08-11 17:41:11.958 +08:00 [INF] Plugin C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\ItemSearchPlugin\1.5.3.0\ItemSearchPlugin.dll is disabled.
+2020-08-11 17:41:11.958 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MapLinker\1.0.1.0
+2020-08-11 17:41:11.958 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MapLinker\1.0.1.0\MapLinker.dll
+2020-08-11 17:41:11.958 +08:00 [INF] Loading assembly at MapLinker.dll
+2020-08-11 17:41:11.959 +08:00 [INF] Loading types for MapLinker, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 17:41:12.018 +08:00 [INF] Loaded plugin: MapLinker
+2020-08-11 17:41:12.018 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MarketBoardPlugin\0.3.0.0
+2020-08-11 17:41:12.018 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MarketBoardPlugin\0.3.0.0\MarketBoardPlugin.dll
+2020-08-11 17:41:12.019 +08:00 [INF] Loading assembly at MarketBoardPlugin.dll
+2020-08-11 17:41:12.019 +08:00 [INF] Loading types for MarketBoardPlugin, Version=0.3.0.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 17:41:12.643 +08:00 [INF] Loaded plugin: Market Board plugin
+2020-08-11 17:41:12.643 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MOAction\2.2.1.6
+2020-08-11 17:41:12.643 +08:00 [INF] Plugin C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MOAction\2.2.1.6\MOAction.dll is disabled.
+2020-08-11 17:41:12.643 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\WaymarkPresetPlugin\0.9.0.1
+2020-08-11 17:41:12.643 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\WaymarkPresetPlugin\0.9.0.1\WaymarkPresetPlugin.dll
+2020-08-11 17:41:12.643 +08:00 [INF] Loading assembly at WaymarkPresetPlugin.dll
+2020-08-11 17:41:12.644 +08:00 [INF] Loading types for WaymarkPresetPlugin, Version=0.9.0.1, Culture=neutral, PublicKeyToken=null
+2020-08-11 17:41:12.760 +08:00 [INF] Loaded plugin: WaymarkPresetPlugin
+2020-08-11 17:41:12.760 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\XIVCombo\1.0.3.3
+2020-08-11 17:41:12.760 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\XIVCombo\1.0.3.3\XIVCombo.dll
+2020-08-11 17:41:12.760 +08:00 [INF] Loading assembly at XIVCombo.dll
+2020-08-11 17:41:12.761 +08:00 [INF] Loading types for XIVCombo, Version=1.0.3.3, Culture=neutral, PublicKeyToken=null
+2020-08-11 17:41:12.856 +08:00 [INF] Loaded plugin: XIV Combo Plugin
+2020-08-11 17:41:12.856 +08:00 [INF] Loading plugins at C:\Users\Administrator\source\repos\Dalamud\bin\devPlugins
+2020-08-11 17:46:43.411 +08:00 [INF] Initializing a session..
+2020-08-11 17:46:44.166 +08:00 [INF] Starting a session..
+2020-08-11 17:46:44.203 +08:00 [INF] Trying to set up Loc for culture zh
+2020-08-11 17:46:44.223 +08:00 [ERR] Could not get SwapChain address via sig method, falling back to vtable...
+System.Exception: Skip SwapChain sig search.
+   在 Dalamud.Interface.InterfaceManager..ctor(Dalamud dalamud, SigScanner scanner)
+2020-08-11 17:46:45.065 +08:00 [INF] Lumina is ready: E:\ff14\最终幻想XIV\game\sqpack
+2020-08-11 17:46:45.139 +08:00 [ERR] Discord token is null or empty.
+2020-08-11 17:46:45.144 +08:00 [INF] Loading plugins at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins
+2020-08-11 17:46:45.148 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\FPSPlugin\1.4.0.0
+2020-08-11 17:46:45.149 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\FPSPlugin\1.4.0.0\FPSPlugin.dll
+2020-08-11 17:46:45.149 +08:00 [INF] Loading assembly at FPSPlugin.dll
+2020-08-11 17:46:45.152 +08:00 [INF] Loading types for FPSPlugin, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 17:46:45.237 +08:00 [INF] Loaded plugin: FPS Plugin
+2020-08-11 17:46:45.238 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\Globetrotter\1.0.1.0
+2020-08-11 17:46:45.238 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\Globetrotter\1.0.1.0\Globetrotter.dll
+2020-08-11 17:46:45.238 +08:00 [INF] Loading assembly at Globetrotter.dll
+2020-08-11 17:46:45.239 +08:00 [INF] Loading types for Globetrotter, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 17:46:45.244 +08:00 [INF] Loaded plugin: Globetrotter
+2020-08-11 17:46:45.245 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\ItemSearchPlugin\1.5.3.0
+2020-08-11 17:46:45.245 +08:00 [INF] Plugin C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\ItemSearchPlugin\1.5.3.0\ItemSearchPlugin.dll is disabled.
+2020-08-11 17:46:45.245 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MapLinker\1.0.1.0
+2020-08-11 17:46:45.245 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MapLinker\1.0.1.0\MapLinker.dll
+2020-08-11 17:46:45.245 +08:00 [INF] Loading assembly at MapLinker.dll
+2020-08-11 17:46:45.246 +08:00 [INF] Loading types for MapLinker, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 17:46:45.320 +08:00 [INF] Loaded plugin: MapLinker
+2020-08-11 17:46:45.320 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MarketBoardPlugin\0.3.0.0
+2020-08-11 17:46:45.320 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MarketBoardPlugin\0.3.0.0\MarketBoardPlugin.dll
+2020-08-11 17:46:45.320 +08:00 [INF] Loading assembly at MarketBoardPlugin.dll
+2020-08-11 17:46:45.320 +08:00 [INF] Loading types for MarketBoardPlugin, Version=0.3.0.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 17:46:46.075 +08:00 [INF] Loaded plugin: Market Board plugin
+2020-08-11 17:46:46.075 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MOAction\2.2.1.6
+2020-08-11 17:46:46.075 +08:00 [INF] Plugin C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MOAction\2.2.1.6\MOAction.dll is disabled.
+2020-08-11 17:46:46.075 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\WaymarkPresetPlugin\0.9.0.1
+2020-08-11 17:46:46.075 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\WaymarkPresetPlugin\0.9.0.1\WaymarkPresetPlugin.dll
+2020-08-11 17:46:46.075 +08:00 [INF] Loading assembly at WaymarkPresetPlugin.dll
+2020-08-11 17:46:46.075 +08:00 [INF] Loading types for WaymarkPresetPlugin, Version=0.9.0.1, Culture=neutral, PublicKeyToken=null
+2020-08-11 17:46:46.179 +08:00 [INF] Loaded plugin: WaymarkPresetPlugin
+2020-08-11 17:46:46.179 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\XIVCombo\1.0.3.3
+2020-08-11 17:46:46.180 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\XIVCombo\1.0.3.3\XIVCombo.dll
+2020-08-11 17:46:46.180 +08:00 [INF] Loading assembly at XIVCombo.dll
+2020-08-11 17:46:46.180 +08:00 [INF] Loading types for XIVCombo, Version=1.0.3.3, Culture=neutral, PublicKeyToken=null
+2020-08-11 17:46:46.259 +08:00 [INF] Loaded plugin: XIV Combo Plugin
+2020-08-11 17:46:46.259 +08:00 [INF] Loading plugins at C:\Users\Administrator\source\repos\Dalamud\bin\devPlugins
+2020-08-11 18:10:56.355 +08:00 [INF] Initializing a session..
+2020-08-11 18:10:57.046 +08:00 [INF] Starting a session..
+2020-08-11 18:10:57.085 +08:00 [INF] Trying to set up Loc for culture zh
+2020-08-11 18:10:57.098 +08:00 [ERR] Could not get SwapChain address via sig method, falling back to vtable...
+System.Exception: Skip SwapChain sig search.
+   在 Dalamud.Interface.InterfaceManager..ctor(Dalamud dalamud, SigScanner scanner)
+2020-08-11 18:10:59.209 +08:00 [INF] Lumina is ready: E:\ff14\最终幻想XIV\game\sqpack
+2020-08-11 18:11:00.141 +08:00 [ERR] Discord token is null or empty.
+2020-08-11 18:11:00.145 +08:00 [INF] Loading plugins at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins
+2020-08-11 18:11:00.167 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\FPSPlugin\1.4.0.0
+2020-08-11 18:11:00.168 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\FPSPlugin\1.4.0.0\FPSPlugin.dll
+2020-08-11 18:11:00.168 +08:00 [INF] Loading assembly at FPSPlugin.dll
+2020-08-11 18:11:00.270 +08:00 [INF] Loading types for FPSPlugin, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 18:11:00.419 +08:00 [INF] Loaded plugin: FPS Plugin
+2020-08-11 18:11:00.420 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\Globetrotter\1.0.1.0
+2020-08-11 18:11:00.420 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\Globetrotter\1.0.1.0\Globetrotter.dll
+2020-08-11 18:11:00.420 +08:00 [INF] Loading assembly at Globetrotter.dll
+2020-08-11 18:11:00.478 +08:00 [INF] Loading types for Globetrotter, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 18:11:00.482 +08:00 [INF] Loaded plugin: Globetrotter
+2020-08-11 18:11:00.482 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\ItemSearchPlugin\1.5.3.0
+2020-08-11 18:11:00.482 +08:00 [INF] Plugin C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\ItemSearchPlugin\1.5.3.0\ItemSearchPlugin.dll is disabled.
+2020-08-11 18:11:00.482 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MapLinker\1.0.1.0
+2020-08-11 18:11:00.482 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MapLinker\1.0.1.0\MapLinker.dll
+2020-08-11 18:11:00.482 +08:00 [INF] Loading assembly at MapLinker.dll
+2020-08-11 18:11:00.553 +08:00 [INF] Loading types for MapLinker, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 18:11:01.555 +08:00 [INF] Loaded plugin: MapLinker
+2020-08-11 18:11:01.555 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MarketBoardPlugin\0.3.0.0
+2020-08-11 18:11:01.556 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MarketBoardPlugin\0.3.0.0\MarketBoardPlugin.dll
+2020-08-11 18:11:01.556 +08:00 [INF] Loading assembly at MarketBoardPlugin.dll
+2020-08-11 18:11:01.633 +08:00 [INF] Loading types for MarketBoardPlugin, Version=0.3.0.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 18:11:02.682 +08:00 [INF] Loaded plugin: Market Board plugin
+2020-08-11 18:11:02.682 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MOAction\2.2.1.6
+2020-08-11 18:11:02.682 +08:00 [INF] Plugin C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MOAction\2.2.1.6\MOAction.dll is disabled.
+2020-08-11 18:11:02.682 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\WaymarkPresetPlugin\0.9.0.1
+2020-08-11 18:11:02.682 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\WaymarkPresetPlugin\0.9.0.1\WaymarkPresetPlugin.dll
+2020-08-11 18:11:02.683 +08:00 [INF] Loading assembly at WaymarkPresetPlugin.dll
+2020-08-11 18:11:02.733 +08:00 [INF] Loading types for WaymarkPresetPlugin, Version=0.9.0.1, Culture=neutral, PublicKeyToken=null
+2020-08-11 18:11:02.936 +08:00 [INF] Loaded plugin: WaymarkPresetPlugin
+2020-08-11 18:11:02.937 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\XIVCombo\1.0.3.3
+2020-08-11 18:11:02.937 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\XIVCombo\1.0.3.3\XIVCombo.dll
+2020-08-11 18:11:02.937 +08:00 [INF] Loading assembly at XIVCombo.dll
+2020-08-11 18:11:03.042 +08:00 [INF] Loading types for XIVCombo, Version=1.0.3.3, Culture=neutral, PublicKeyToken=null
+2020-08-11 18:11:03.191 +08:00 [INF] Loaded plugin: XIV Combo Plugin
+2020-08-11 18:11:03.191 +08:00 [INF] Loading plugins at C:\Users\Administrator\source\repos\Dalamud\bin\devPlugins
+2020-08-11 18:15:56.613 +08:00 [INF] Initializing a session..
+2020-08-11 18:15:56.805 +08:00 [VRB] Is32BitProcess : False
+2020-08-11 18:15:56.807 +08:00 [VRB] module copy START
+2020-08-11 18:15:56.807 +08:00 [VRB] Alloc: 53680040
+2020-08-11 18:15:56.824 +08:00 [VRB] copy OK!
+2020-08-11 18:15:56.830 +08:00 [VRB] Module base: 1399328832
+2020-08-11 18:15:56.832 +08:00 [VRB] Module size: 22390194
+2020-08-11 18:15:56.837 +08:00 [VRB] Framework address 41107232
+2020-08-11 18:15:56.949 +08:00 [VRB] ===== G A M E G U I =====
+2020-08-11 18:15:56.949 +08:00 [VRB] GameGuiManager address 538050324
+2020-08-11 18:15:56.949 +08:00 [VRB] SetGlobalBgm address 5372545760
+2020-08-11 18:15:56.949 +08:00 [VRB] HandleItemHover address 5375129280
+2020-08-11 18:15:56.949 +08:00 [VRB] HandleItemOut address 5375127952
+2020-08-11 18:15:56.949 +08:00 [VRB] GetUIObject address 5372716384
+2020-08-11 18:15:56.981 +08:00 [VRB] Chat manager address 538055412
+2020-08-11 18:15:57.077 +08:00 [VRB] ===== G A M E N E T W O R K =====
+2020-08-11 18:15:57.077 +08:00 [VRB] ProcessZonePacketDown address 5382900864
+2020-08-11 18:15:57.077 +08:00 [VRB] ProcessZonePacketUp address 5385152464
+2020-08-11 18:15:57.268 +08:00 [VRB] ===== C L I E N T  S T A T E =====
+2020-08-11 18:15:57.269 +08:00 [VRB] Actor table address 5395808608
+2020-08-11 18:15:57.271 +08:00 [VRB] JobGaugeData address 5395621776
+2020-08-11 18:15:57.272 +08:00 [VRB] Keyboard state buffer address 5395617156
+2020-08-11 18:15:57.272 +08:00 [VRB] SetupTerritoryType address 5376821120
+2020-08-11 18:15:57.277 +08:00 [INF] Starting a session..
+2020-08-11 18:15:57.300 +08:00 [VRB] Starting asset download
+2020-08-11 18:15:57.304 +08:00 [INF] Trying to set up Loc for culture zh
+2020-08-11 18:15:57.314 +08:00 [ERR] Could not get SwapChain address via sig method, falling back to vtable...
+System.Exception: Skip SwapChain sig search.
+   在 Dalamud.Interface.InterfaceManager..ctor(Dalamud dalamud, SigScanner scanner)
+2020-08-11 18:15:57.400 +08:00 [VRB] Found SwapChain via vtable.
+2020-08-11 18:15:57.401 +08:00 [VRB] ===== S W A P C H A I N =====
+2020-08-11 18:15:57.401 +08:00 [VRB] SetCursor address 2006566544
+2020-08-11 18:15:57.401 +08:00 [VRB] Present address 8791671485176
+2020-08-11 18:15:57.401 +08:00 [VRB] ResizeBuffers address 8791671503228
+2020-08-11 18:15:57.407 +08:00 [VRB] Starting data load...
+2020-08-11 18:15:57.412 +08:00 [VRB] Loaded 7 ServerOpCodes.
+2020-08-11 18:15:57.412 +08:00 [VRB] Loaded 1 ClientOpCodes.
+2020-08-11 18:15:57.961 +08:00 [INF] Lumina is ready: E:\ff14\最终幻想XIV\game\sqpack
+2020-08-11 18:15:58.036 +08:00 [ERR] Discord token is null or empty.
+2020-08-11 18:15:58.039 +08:00 [INF] Loading plugins at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins
+2020-08-11 18:15:58.042 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\FPSPlugin\1.4.0.0
+2020-08-11 18:15:58.042 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\FPSPlugin\1.4.0.0\FPSPlugin.dll
+2020-08-11 18:15:58.042 +08:00 [INF] Loading assembly at FPSPlugin.dll
+2020-08-11 18:15:58.043 +08:00 [INF] Loading types for FPSPlugin, Version=1.4.0.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 18:15:58.125 +08:00 [INF] Loaded plugin: FPS Plugin
+2020-08-11 18:15:58.126 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\Globetrotter\1.0.1.0
+2020-08-11 18:15:58.126 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\Globetrotter\1.0.1.0\Globetrotter.dll
+2020-08-11 18:15:58.126 +08:00 [INF] Loading assembly at Globetrotter.dll
+2020-08-11 18:15:58.127 +08:00 [INF] Loading types for Globetrotter, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 18:15:58.129 +08:00 [INF] Loaded plugin: Globetrotter
+2020-08-11 18:15:58.129 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\ItemSearchPlugin\1.5.3.0
+2020-08-11 18:15:58.129 +08:00 [INF] Plugin C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\ItemSearchPlugin\1.5.3.0\ItemSearchPlugin.dll is disabled.
+2020-08-11 18:15:58.129 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MapLinker\1.0.1.0
+2020-08-11 18:15:58.129 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MapLinker\1.0.1.0\MapLinker.dll
+2020-08-11 18:15:58.129 +08:00 [INF] Loading assembly at MapLinker.dll
+2020-08-11 18:15:58.130 +08:00 [INF] Loading types for MapLinker, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 18:15:58.202 +08:00 [INF] Loaded plugin: MapLinker
+2020-08-11 18:15:58.202 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MarketBoardPlugin\0.3.0.0
+2020-08-11 18:15:58.202 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MarketBoardPlugin\0.3.0.0\MarketBoardPlugin.dll
+2020-08-11 18:15:58.202 +08:00 [INF] Loading assembly at MarketBoardPlugin.dll
+2020-08-11 18:15:58.202 +08:00 [INF] Loading types for MarketBoardPlugin, Version=0.3.0.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 18:15:58.818 +08:00 [INF] Loaded plugin: Market Board plugin
+2020-08-11 18:15:58.818 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MOAction\2.2.1.6
+2020-08-11 18:15:58.818 +08:00 [INF] Plugin C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MOAction\2.2.1.6\MOAction.dll is disabled.
+2020-08-11 18:15:58.818 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\WaymarkPresetPlugin\0.9.0.1
+2020-08-11 18:15:58.818 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\WaymarkPresetPlugin\0.9.0.1\WaymarkPresetPlugin.dll
+2020-08-11 18:15:58.818 +08:00 [INF] Loading assembly at WaymarkPresetPlugin.dll
+2020-08-11 18:15:58.819 +08:00 [INF] Loading types for WaymarkPresetPlugin, Version=0.9.0.1, Culture=neutral, PublicKeyToken=null
+2020-08-11 18:15:58.904 +08:00 [INF] Loaded plugin: WaymarkPresetPlugin
+2020-08-11 18:15:58.904 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\XIVCombo\1.0.3.3
+2020-08-11 18:15:58.904 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\XIVCombo\1.0.3.3\XIVCombo.dll
+2020-08-11 18:15:58.904 +08:00 [INF] Loading assembly at XIVCombo.dll
+2020-08-11 18:15:58.905 +08:00 [INF] Loading types for XIVCombo, Version=1.0.3.3, Culture=neutral, PublicKeyToken=null
+2020-08-11 18:15:58.973 +08:00 [VRB] ===== H O T B A R S =====
+2020-08-11 18:15:58.973 +08:00 [VRB] IsIconReplaceable address 5366549056
+2020-08-11 18:15:58.973 +08:00 [VRB] GetIcon address 5372877136
+2020-08-11 18:15:58.973 +08:00 [VRB] ComboTimer address 5395328576
+2020-08-11 18:15:58.973 +08:00 [VRB] LastComboMove address 5395328580
+2020-08-11 18:15:58.973 +08:00 [VRB] PlayerLevel address 5395822416
+2020-08-11 18:15:58.985 +08:00 [INF] Loaded plugin: XIV Combo Plugin
+2020-08-11 18:15:58.985 +08:00 [INF] Loading plugins at C:\Users\Administrator\source\repos\Dalamud\bin\devPlugins
+2020-08-11 18:15:58.985 +08:00 [INF] Plugin ALL loaded
+2020-08-11 18:22:48.458 +08:00 [INF] Initializing a session..
+2020-08-11 18:22:48.651 +08:00 [VRB] Is32BitProcess : False
+2020-08-11 18:22:48.653 +08:00 [VRB] module copy START
+2020-08-11 18:22:48.653 +08:00 [VRB] Alloc: 549a0040
+2020-08-11 18:22:48.669 +08:00 [VRB] copy OK!
+2020-08-11 18:22:48.676 +08:00 [VRB] Module base: 1419382848
+2020-08-11 18:22:48.677 +08:00 [VRB] Module size: 22390194
+2020-08-11 18:22:48.682 +08:00 [VRB] Framework address 40124192
+2020-08-11 18:22:48.795 +08:00 [VRB] ===== G A M E G U I =====
+2020-08-11 18:22:48.795 +08:00 [VRB] GameGuiManager address 538050324
+2020-08-11 18:22:48.795 +08:00 [VRB] SetGlobalBgm address 5368351456
+2020-08-11 18:22:48.795 +08:00 [VRB] HandleItemHover address 5370934976
+2020-08-11 18:22:48.795 +08:00 [VRB] HandleItemOut address 5370933648
+2020-08-11 18:22:48.795 +08:00 [VRB] GetUIObject address 5368522080
+2020-08-11 18:22:48.826 +08:00 [VRB] Chat manager address 538055412
+2020-08-11 18:22:48.920 +08:00 [VRB] ===== G A M E N E T W O R K =====
+2020-08-11 18:22:48.920 +08:00 [VRB] ProcessZonePacketDown address 5378706560
+2020-08-11 18:22:48.920 +08:00 [VRB] ProcessZonePacketUp address 5380958160
+2020-08-11 18:22:49.109 +08:00 [VRB] ===== C L I E N T  S T A T E =====
+2020-08-11 18:22:49.110 +08:00 [VRB] Actor table address 5391614304
+2020-08-11 18:22:49.112 +08:00 [VRB] JobGaugeData address 5391427472
+2020-08-11 18:22:49.113 +08:00 [VRB] Keyboard state buffer address 5391422852
+2020-08-11 18:22:49.113 +08:00 [VRB] SetupTerritoryType address 5372626816
+2020-08-11 18:22:49.117 +08:00 [INF] Starting a session..
+2020-08-11 18:22:49.142 +08:00 [VRB] Starting asset download
+2020-08-11 18:22:49.145 +08:00 [INF] Trying to set up Loc for culture zh
+2020-08-11 18:22:49.154 +08:00 [ERR] Could not get SwapChain address via sig method, falling back to vtable...
+System.Exception: Skip SwapChain sig search.
+   在 Dalamud.Interface.InterfaceManager..ctor(Dalamud dalamud, SigScanner scanner)
+2020-08-11 18:22:49.228 +08:00 [VRB] Found SwapChain via vtable.
+2020-08-11 18:22:49.228 +08:00 [VRB] ===== S W A P C H A I N =====
+2020-08-11 18:22:49.228 +08:00 [VRB] SetCursor address 2006566544
+2020-08-11 18:22:49.228 +08:00 [VRB] Present address 8791671485176
+2020-08-11 18:22:49.228 +08:00 [VRB] ResizeBuffers address 8791671503228
+2020-08-11 18:22:49.233 +08:00 [VRB] Starting data load...
+2020-08-11 18:22:49.239 +08:00 [VRB] Loaded 7 ServerOpCodes.
+2020-08-11 18:22:49.239 +08:00 [VRB] Loaded 1 ClientOpCodes.
+2020-08-11 18:22:49.853 +08:00 [INF] Lumina is ready: E:\ff14\最终幻想XIV\game\sqpack
+2020-08-11 18:22:49.932 +08:00 [ERR] Discord token is null or empty.
+2020-08-11 18:22:49.939 +08:00 [INF] Loading plugins at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins
+2020-08-11 18:22:49.940 +08:00 [INF] Loading plugins at C:\Users\Administrator\source\repos\Dalamud\bin\devPlugins
+2020-08-11 18:22:49.940 +08:00 [INF] Plugin ALL loaded
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470490576 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470490632 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470490688 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470490744 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470490800 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470490856 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470490912 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470490968 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491024 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491080 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491136 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491192 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491248 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491304 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491360 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491416 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491472 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491528 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491584 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491640 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491696 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491752 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491808 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491864 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491920 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491976 - linked:0
+2020-08-11 18:22:58.208 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492032 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492088 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492144 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492200 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492256 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492312 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492368 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492424 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492480 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492536 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492592 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492648 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492704 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492760 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492816 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492872 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492928 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492984 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493040 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493096 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493152 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493208 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493264 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493320 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493376 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493432 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493488 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493544 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493600 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493656 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493712 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493768 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493824 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493880 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493936 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493992 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494048 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494104 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494160 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494216 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494272 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494328 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494384 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494440 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494496 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494552 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494608 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494664 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494720 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494776 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494832 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494888 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494944 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495000 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495056 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495112 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495168 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495224 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495280 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495336 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495392 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495448 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495504 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495560 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495616 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495672 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495728 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495784 - linked:0
+2020-08-11 18:22:58.209 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495840 - linked:0
+2020-08-11 18:23:01.729 +08:00 [DBG] HandlePopulateItemLinkDetour 2606960 2607024 - linked:27873
+2020-08-11 18:23:01.729 +08:00 [DBG] HandlePopulateItemLinkDetour 2606960 2607024 - linked:27873
+2020-08-11 18:23:01.729 +08:00 [DBG] HandlePopulateItemLinkDetour 2606960 2607024 - linked:27877
+2020-08-11 18:23:01.729 +08:00 [DBG] HandlePopulateItemLinkDetour 2606960 2607024 - linked:27877
+2020-08-11 18:23:01.729 +08:00 [DBG] HandlePopulateItemLinkDetour 2606432 2606496 - linked:27877
+2020-08-11 18:23:01.729 +08:00 [DBG] HandlePopulateItemLinkDetour 2606432 2606496 - linked:27877
+2020-08-11 18:23:01.729 +08:00 [DBG] HandlePopulateItemLinkDetour 2606432 2606496 - linked:27873
+2020-08-11 18:23:01.730 +08:00 [DBG] HandlePopulateItemLinkDetour 2606432 2606496 - linked:27873
+2020-08-11 18:23:01.730 +08:00 [DBG] HandlePopulateItemLinkDetour 2611088 2611152 - linked:27873
+2020-08-11 18:23:01.730 +08:00 [DBG] HandlePopulateItemLinkDetour 2611088 2611152 - linked:27873
+2020-08-11 18:23:01.730 +08:00 [DBG] HandlePopulateItemLinkDetour 2611088 2611152 - linked:27877
+2020-08-11 18:23:01.730 +08:00 [DBG] HandlePopulateItemLinkDetour 2611088 2611152 - linked:27877
+2020-08-11 18:23:01.794 +08:00 [VRB] [CHATGUI][][海雾村第15区]
+2020-08-11 18:23:01.809 +08:00 [VRB] [CHATGUI PRINT]已加载Dalamud v5.0.0.4。
+2020-08-11 18:23:01.812 +08:00 [INF] Starting plugin update... dry:true
+2020-08-11 18:23:01.814 +08:00 [INF] Plugin update OK.
+2020-08-11 18:23:01.834 +08:00 [VRB] String allocated to 17918900
+2020-08-11 18:23:23.606 +08:00 [VRB] [CHATGUI][][“11”出现问题：当前没有组成小队。]
+2020-08-11 18:24:01.765 +08:00 [VRB] [CHATGUI][霁夜江山笑][测试test123]
+2020-08-11 18:28:17.287 +08:00 [VRB] [CHATGUI][][“/xlplugins”出现问题：该命令不存在。]
+2020-08-11 18:28:27.644 +08:00 [INF] Downloading plugin to C:\Users\Administrator\AppData\Local\Temp\tmp5C67.tmp
+2020-08-11 18:28:28.019 +08:00 [INF] Extracting to C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MapLinker\1.0.1.0
+2020-08-11 18:28:28.026 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MapLinker\1.0.1.0
+2020-08-11 18:28:28.027 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MapLinker\1.0.1.0\MapLinker.dll
+2020-08-11 18:28:28.027 +08:00 [INF] Loading assembly at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MapLinker\1.0.1.0\MapLinker.dll
+2020-08-11 18:28:28.027 +08:00 [INF] Loading types for MapLinker, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 18:28:28.115 +08:00 [INF] Loaded plugin: MapLinker
+2020-08-11 18:28:30.874 +08:00 [INF] Downloading plugin to C:\Users\Administrator\AppData\Local\Temp\tmp6905.tmp
+2020-08-11 18:28:31.247 +08:00 [INF] Extracting to C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\Globetrotter\1.0.1.0
+2020-08-11 18:28:31.250 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\Globetrotter\1.0.1.0
+2020-08-11 18:28:31.250 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\Globetrotter\1.0.1.0\Globetrotter.dll
+2020-08-11 18:28:31.250 +08:00 [INF] Loading assembly at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\Globetrotter\1.0.1.0\Globetrotter.dll
+2020-08-11 18:28:31.252 +08:00 [INF] Loading types for Globetrotter, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 18:28:31.255 +08:00 [INF] Loaded plugin: Globetrotter
+2020-08-11 18:28:39.964 +08:00 [INF] Downloading plugin to C:\Users\Administrator\AppData\Local\Temp\tmp8C8D.tmp
+2020-08-11 18:28:40.436 +08:00 [INF] Extracting to C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MarketBoardPlugin\0.3.0.0
+2020-08-11 18:28:40.438 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MarketBoardPlugin\0.3.0.0
+2020-08-11 18:28:40.438 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MarketBoardPlugin\0.3.0.0\MarketBoardPlugin.dll
+2020-08-11 18:28:40.438 +08:00 [INF] Loading assembly at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MarketBoardPlugin\0.3.0.0\MarketBoardPlugin.dll
+2020-08-11 18:28:40.440 +08:00 [INF] Loading types for MarketBoardPlugin, Version=0.3.0.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 18:28:41.182 +08:00 [INF] Loaded plugin: Market Board plugin
+2020-08-11 18:29:53.322 +08:00 [INF] Downloading plugin to C:\Users\Administrator\AppData\Local\Temp\tmpAB16.tmp
+2020-08-11 18:29:53.668 +08:00 [INF] Extracting to C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\ChatCoordinates\1.1.0.0
+2020-08-11 18:29:53.670 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\ChatCoordinates\1.1.0.0
+2020-08-11 18:29:53.670 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\ChatCoordinates\1.1.0.0\ChatCoordinates.dll
+2020-08-11 18:29:53.670 +08:00 [INF] Loading assembly at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\ChatCoordinates\1.1.0.0\ChatCoordinates.dll
+2020-08-11 18:29:53.672 +08:00 [INF] Loading types for ChatCoordinates, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 18:29:53.673 +08:00 [VRB] Is32BitProcess : False
+2020-08-11 18:29:53.674 +08:00 [VRB] module copy START
+2020-08-11 18:29:53.674 +08:00 [VRB] Alloc: 67c20040
+2020-08-11 18:29:53.686 +08:00 [VRB] copy OK!
+2020-08-11 18:29:53.686 +08:00 [VRB] Module base: 1740771392
+2020-08-11 18:29:53.686 +08:00 [VRB] Module size: 22390194
+2020-08-11 18:29:53.701 +08:00 [INF] Loaded plugin: ChatCoordinates Plugin
+2020-08-11 18:30:36.297 +08:00 [VRB] [CHATGUI][霁夜江山笑][伙伴们发个地图坐标我测试下]
+2020-08-11 18:31:19.682 +08:00 [VRB] [CHATGUI][啊什汪][利姆萨·罗敏萨下层甲板 ( 9.2  , 11.5 )]
+2020-08-11 18:31:56.302 +08:00 [DBG] TerritoryType changed: 282
+2020-08-11 18:31:56.357 +08:00 [VRB] [CHATGUI][][离开了休息区。]
+2020-08-11 18:31:56.564 +08:00 [DBG] HandlePopulateItemLinkDetour 2615104 2615168 - linked:27873
+2020-08-11 18:31:56.564 +08:00 [DBG] HandlePopulateItemLinkDetour 2615104 2615168 - linked:27873
+2020-08-11 18:31:56.564 +08:00 [DBG] HandlePopulateItemLinkDetour 2615104 2615168 - linked:27877
+2020-08-11 18:31:56.564 +08:00 [DBG] HandlePopulateItemLinkDetour 2615104 2615168 - linked:27877
+2020-08-11 18:31:56.565 +08:00 [VRB] [CHATGUI][][进入了休息区。]
+2020-08-11 18:32:04.462 +08:00 [DBG] HandlePopulateItemLinkDetour 2606960 2607024 - linked:27873
+2020-08-11 18:32:04.462 +08:00 [DBG] HandlePopulateItemLinkDetour 2606960 2607024 - linked:27873
+2020-08-11 18:32:04.462 +08:00 [DBG] HandlePopulateItemLinkDetour 2606960 2607024 - linked:27877
+2020-08-11 18:32:04.462 +08:00 [DBG] HandlePopulateItemLinkDetour 2606960 2607024 - linked:27877
+2020-08-11 18:32:04.462 +08:00 [DBG] HandlePopulateItemLinkDetour 2606432 2606496 - linked:27877
+2020-08-11 18:32:04.462 +08:00 [DBG] HandlePopulateItemLinkDetour 2606432 2606496 - linked:27877
+2020-08-11 18:32:04.462 +08:00 [DBG] HandlePopulateItemLinkDetour 2606432 2606496 - linked:27873
+2020-08-11 18:32:04.462 +08:00 [DBG] HandlePopulateItemLinkDetour 2606432 2606496 - linked:27873
+2020-08-11 18:32:04.463 +08:00 [DBG] HandlePopulateItemLinkDetour 2611088 2611152 - linked:27873
+2020-08-11 18:32:04.463 +08:00 [DBG] HandlePopulateItemLinkDetour 2611088 2611152 - linked:27873
+2020-08-11 18:32:04.463 +08:00 [DBG] HandlePopulateItemLinkDetour 2611088 2611152 - linked:27877
+2020-08-11 18:32:04.463 +08:00 [DBG] HandlePopulateItemLinkDetour 2611088 2611152 - linked:27877
+2020-08-11 18:32:04.502 +08:00 [VRB] [CHATGUI][][进入了幻卡游戏区。]
+2020-08-11 18:32:07.339 +08:00 [VRB] [CHATGUI][][“/xlhelp”出现问题：该命令不存在。]
+2020-08-11 18:32:07.342 +08:00 [VRB] [CHATGUI PRINT]可用命令：
+2020-08-11 18:32:07.342 +08:00 [VRB] [CHATGUI PRINT]/xlhelp: 显示可用命令列表。
+2020-08-11 18:32:07.342 +08:00 [VRB] [CHATGUI PRINT]/xlmute: 聊天窗口屏蔽词语或语句。使用方法：/xlmute <词语或语句>
+2020-08-11 18:32:07.342 +08:00 [VRB] [CHATGUI PRINT]/xlmutelist: 列出已屏蔽词语或语句。
+2020-08-11 18:32:07.342 +08:00 [VRB] [CHATGUI PRINT]/xlunmute: 取消屏蔽词语或语句。使用方法：/xlunmute <词语或语句>
+2020-08-11 18:32:07.342 +08:00 [VRB] [CHATGUI PRINT]/ll: 在默认浏览器中打开最后发布的链接。
+2020-08-11 18:32:07.342 +08:00 [VRB] [CHATGUI PRINT]/xlbotjoin: 将XIVLauncher Discord机器人添加到您的服务器。
+2020-08-11 18:32:07.342 +08:00 [VRB] [CHATGUI PRINT]/xlbgmset: 设置游戏背景音乐。使用方法：/xlbgmset <BGM ID>
+2020-08-11 18:32:07.342 +08:00 [VRB] [CHATGUI PRINT]/xlbonus: 当随机任务有您指定的参数时通知。输入/xlbonus获取更多信息。使用方法：/xlbonus <随机任务名称> <职业名称>
+2020-08-11 18:32:07.342 +08:00 [VRB] [CHATGUI PRINT]/xlplugins: 打开插件安装器
+2020-08-11 18:32:07.342 +08:00 [VRB] [CHATGUI PRINT]/xlcredits: 打开Dalamud鸣谢名单。
+2020-08-11 18:32:07.342 +08:00 [VRB] [CHATGUI PRINT]/xllanguage: 设置游戏内加载项和插件的语言（支持的）。可用语言：en, de, ja, fr, it, es, zh
+2020-08-11 18:32:07.342 +08:00 [VRB] [CHATGUI PRINT]/xlsettings: 更改各种游戏内加载项设置，如聊天频道和Discord机器人设置。
+2020-08-11 18:32:07.342 +08:00 [VRB] [CHATGUI PRINT]/maplink: /maplink - open the maplink panel.
+2020-08-11 18:32:07.342 +08:00 [VRB] [CHATGUI PRINT]/pglobetrotter: Show the Globetrotter config
+2020-08-11 18:32:07.342 +08:00 [VRB] [CHATGUI PRINT]/tmap: Open the map and place a flag at the location of your current treasure map
+2020-08-11 18:32:07.342 +08:00 [VRB] [CHATGUI PRINT]/pmb: Open the market board window.
+2020-08-11 18:32:07.342 +08:00 [VRB] [CHATGUI PRINT]/coord: /coord <x> <y>
+2020-08-11 18:32:07.374 +08:00 [VRB] String allocated to 3AB20CB0
+2020-08-11 18:32:07.374 +08:00 [VRB] String allocated to 3AB20CB0
+2020-08-11 18:32:07.374 +08:00 [VRB] String allocated to 3AB20CB0
+2020-08-11 18:32:07.374 +08:00 [VRB] String allocated to 3AB20CB0
+2020-08-11 18:32:07.374 +08:00 [VRB] String allocated to 3AB20CB0
+2020-08-11 18:32:07.374 +08:00 [VRB] String allocated to 3AB20CB0
+2020-08-11 18:32:07.374 +08:00 [VRB] String allocated to 3AB20CB0
+2020-08-11 18:32:07.374 +08:00 [VRB] String allocated to 3AB20CB0
+2020-08-11 18:32:07.374 +08:00 [VRB] String allocated to 3AB20CB0
+2020-08-11 18:32:07.374 +08:00 [VRB] String allocated to 3AB20CB0
+2020-08-11 18:32:07.374 +08:00 [VRB] String allocated to 3AB20CB0
+2020-08-11 18:32:07.374 +08:00 [VRB] String allocated to 3AB20CB0
+2020-08-11 18:32:07.374 +08:00 [VRB] String allocated to 3AB20CB0
+2020-08-11 18:32:07.374 +08:00 [VRB] String allocated to 3AB20CB0
+2020-08-11 18:32:07.374 +08:00 [VRB] String allocated to 3AB20CB0
+2020-08-11 18:32:07.374 +08:00 [VRB] String allocated to 3AB20CB0
+2020-08-11 18:32:07.374 +08:00 [VRB] String allocated to 3AB20CB0
+2020-08-11 18:32:07.374 +08:00 [VRB] String allocated to 3AB20CB0
+2020-08-11 18:32:35.881 +08:00 [VRB] [CHATGUI][][“/coord 6 6”出现问题：该命令不存在。]
+2020-08-11 18:32:35.918 +08:00 [VRB] String allocated to 3AB20A90
+2020-08-11 18:32:46.809 +08:00 [VRB] Unhandled EmbeddedInfoType: "8"
+2020-08-11 18:32:46.809 +08:00 [VRB] [CHATGUI][][当前共有248个队伍正在招募队员，其中有248个队伍符合搜索条件。]
+2020-08-11 18:32:54.281 +08:00 [VRB] [CHATGUI][][“/coord 6 6”出现问题：该命令不存在。]
+2020-08-11 18:32:54.317 +08:00 [VRB] String allocated to 3AB20A90
+2020-08-11 18:36:55.863 +08:00 [VRB] [CHATGUI][][部队消息：部队成员卡诺儿上线了。]
+2020-08-11 18:37:17.297 +08:00 [VRB] HoverItemId: 5512
+2020-08-11 18:37:17.377 +08:00 [VRB] HoverItemId: 0
+2020-08-11 18:37:20.597 +08:00 [VRB] HoverItemId: 2001886
+2020-08-11 18:37:20.678 +08:00 [VRB] HoverItemId: 2002628
+2020-08-11 18:37:20.759 +08:00 [VRB] HoverItemId: 2001703
+2020-08-11 18:37:21.002 +08:00 [DBG] OpenMapWithMapLink: Opening Map Link: m:813,491,-385537,-433065
+2020-08-11 18:37:21.003 +08:00 [VRB] HoverItemId: 2002664
+2020-08-11 18:37:21.010 +08:00 [VRB] HoverItemId: 0
+2020-08-11 18:37:22.845 +08:00 [VRB] HoverItemId: 2002628
+2020-08-11 18:37:22.979 +08:00 [VRB] HoverItemId: 2001886
+2020-08-11 18:37:23.116 +08:00 [VRB] HoverItemId: 0
+2020-08-11 18:38:18.905 +08:00 [VRB] [CHATGUI][][播放了«Shadowbringers　-暗影使者-»。]
+2020-08-11 18:38:29.733 +08:00 [VRB] HoverItemId: 2001886
+2020-08-11 18:38:29.813 +08:00 [VRB] HoverItemId: 2001993
+2020-08-11 18:38:29.894 +08:00 [VRB] HoverItemId: 2002628
+2020-08-11 18:38:30.096 +08:00 [VRB] HoverItemId: 2002113
+2020-08-11 18:38:30.379 +08:00 [DBG] OpenMapWithMapLink: Opening Map Link: m:813,491,-385537,-433065
+2020-08-11 18:38:30.380 +08:00 [VRB] HoverItemId: 2002664
+2020-08-11 18:38:32.854 +08:00 [VRB] HoverItemId: 0
+2020-08-11 18:40:22.221 +08:00 [VRB] [CHATGUI][][“/maplink”出现问题：该命令不存在。]
+2020-08-11 18:41:04.647 +08:00 [VRB] [CHATGUI][霁夜江山笑][海雾村私人小屋 ( 6.0  , 6.1 )]
+2020-08-11 18:41:06.820 +08:00 [VRB] HoverItemId: 29027
+2020-08-11 18:41:06.902 +08:00 [VRB] HoverItemId: 23164
+2020-08-11 18:41:07.022 +08:00 [VRB] HoverItemId: 0
+2020-08-11 18:41:07.420 +08:00 [VRB] HoverItemId: 15856
+2020-08-11 18:41:07.496 +08:00 [VRB] HoverItemId: 27993
+2020-08-11 18:41:07.563 +08:00 [VRB] HoverItemId: 0
+2020-08-11 18:41:08.172 +08:00 [VRB] HoverItemId: 2002631
+2020-08-11 18:41:08.208 +08:00 [VRB] HoverItemId: 2001886
+2020-08-11 18:41:08.243 +08:00 [VRB] HoverItemId: 2001993
+2020-08-11 18:41:08.279 +08:00 [VRB] HoverItemId: 2002628
+2020-08-11 18:41:08.351 +08:00 [VRB] HoverItemId: 2001703
+2020-08-11 18:41:08.495 +08:00 [VRB] HoverItemId: 0
+2020-08-11 18:41:08.638 +08:00 [DBG] OpenMapWithMapLink: Opening Map Link: m:813,491,-385537,-433065
+2020-08-11 18:41:08.639 +08:00 [VRB] HoverItemId: 2002664
+2020-08-11 18:41:08.994 +08:00 [DBG] HandlePopulateItemLinkDetour 491773344 470497072 - linked:2002664
+2020-08-11 18:41:08.994 +08:00 [DBG] HandlePopulateItemLinkDetour 2614544 470497072 - linked:2002664
+2020-08-11 18:41:09.105 +08:00 [VRB] HoverItemId: 0
+2020-08-11 18:41:13.212 +08:00 [VRB] [CHATGUI][霁夜江山笑][雷克兰德 ( 13.7  , 12.8 )]
+2020-08-11 18:41:26.055 +08:00 [VRB] [CHATGUI][][“/maplink”出现问题：该命令不存在。]
+2020-08-11 18:41:57.213 +08:00 [VRB] [CHATGUI PRINT]Looking up details for 利姆萨·罗敏萨下层甲板
+2020-08-11 18:41:57.240 +08:00 [VRB] String allocated to 3AB20DC0
+2020-08-11 18:41:57.240 +08:00 [VRB] String allocated to 3AB20DC0
+2020-08-11 18:42:38.890 +08:00 [VRB] [CHATGUI PRINT]Looking up details for 利姆萨·罗敏萨下层甲板
+2020-08-11 18:42:38.918 +08:00 [VRB] String allocated to 3AB20DC0
+2020-08-11 18:42:38.918 +08:00 [VRB] String allocated to 3AB20DC0
+2020-08-11 18:42:46.763 +08:00 [VRB] Unhandled EmbeddedInfoType: "8"
+2020-08-11 18:42:46.763 +08:00 [VRB] [CHATGUI][][当前共有255个队伍正在招募队员，其中有255个队伍符合搜索条件。]
+2020-08-11 18:42:59.009 +08:00 [VRB] [CHATGUI][][“/tp”出现问题：该命令不存在。]
+2020-08-11 18:43:23.256 +08:00 [VRB] [CHATGUI][][“/xlplugins”出现问题：该命令不存在。]
+2020-08-11 18:43:29.733 +08:00 [INF] Downloading plugin to C:\Users\Administrator\AppData\Local\Temp\tmp2036.tmp
+2020-08-11 18:43:30.063 +08:00 [INF] Extracting to C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\TeleporterPlugin\1.0.0.4
+2020-08-11 18:43:30.064 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\TeleporterPlugin\1.0.0.4
+2020-08-11 18:43:30.064 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\TeleporterPlugin\1.0.0.4\TeleporterPlugin.dll
+2020-08-11 18:43:30.064 +08:00 [INF] Loading assembly at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\TeleporterPlugin\1.0.0.4\TeleporterPlugin.dll
+2020-08-11 18:43:30.068 +08:00 [INF] Loading types for TeleporterPlugin, Version=1.0.0.4, Culture=neutral, PublicKeyToken=null
+2020-08-11 18:43:30.203 +08:00 [INF] Loaded plugin: Teleporter
+2020-08-11 18:44:07.086 +08:00 [INF] [TeleporterPlugin] Teleporting to '利姆萨·罗敏萨下层甲板'.
+2020-08-11 18:44:07.086 +08:00 [VRB] [CHATGUI PRINT][Teleporter] Teleporting to '利姆萨·罗敏萨下层甲板'.
+2020-08-11 18:44:07.113 +08:00 [VRB] String allocated to 3AB21200
+2020-08-11 18:44:07.230 +08:00 [VRB] [CHATGUI][][霁夜江山笑正在发动“传送”。]
+2020-08-11 18:44:09.854 +08:00 [VRB] [CHATGUI][][霁夜江山笑中断了发动“传送”。]
+2020-08-11 18:44:33.200 +08:00 [VRB] [CHATGUI][][播放了«忘却的此岸»。]
+2020-08-11 18:44:47.739 +08:00 [ERR] [MapLinker] [MapLinker] Cannot find nearest aetheryte of 海雾村私人小屋(6.051777, 6.074039).
+2020-08-11 18:44:47.739 +08:00 [VRB] [CHATGUI PRINT ERROR][MapLinker] Cannot find nearest aetheryte of 海雾村私人小屋(6.051777, 6.074039).
+2020-08-11 18:44:47.767 +08:00 [VRB] String allocated to 3AB22740
+2020-08-11 18:44:50.205 +08:00 [INF] [TeleporterPlugin] Teleporting to '奥斯塔尔严命城'.
+2020-08-11 18:44:50.205 +08:00 [VRB] [CHATGUI PRINT][Teleporter] Teleporting to '奥斯塔尔严命城'.
+2020-08-11 18:44:50.232 +08:00 [VRB] String allocated to 3AB22740
+2020-08-11 18:44:50.307 +08:00 [VRB] [CHATGUI][][霁夜江山笑正在发动“传送”。]
+2020-08-11 18:44:52.641 +08:00 [VRB] [CHATGUI][][霁夜江山笑中断了发动“传送”。]
+2020-08-11 18:45:15.798 +08:00 [VRB] [CHATGUI][][“/tp”出现问题：该命令不存在。]
+2020-08-11 18:45:15.799 +08:00 [VRB] [CHATGUI PRINT]Teleporter Help:
+/tp help - Show this Message
+/tp debug - Show Debug Window
+/tp config - Show Settings Window
+/tp <name> - Teleport to <name> (e.g. /tp New Gridania)
+2020-08-11 18:45:15.829 +08:00 [VRB] String allocated to 3AB21860
+2020-08-11 18:45:35.378 +08:00 [VRB] [CHATGUI][][“/tp <flag>”出现问题：该命令不存在。]
+2020-08-11 18:45:35.380 +08:00 [ERR] [TeleporterPlugin] No attuned Aetheryte found for '<flag>'.
+2020-08-11 18:45:35.380 +08:00 [VRB] [CHATGUI PRINT ERROR][Teleporter] No attuned Aetheryte found for '<flag>'.
+2020-08-11 18:45:35.409 +08:00 [VRB] String allocated to 3AB21860
+2020-08-11 18:45:53.949 +08:00 [VRB] [CHATGUI][][“/tp”出现问题：该命令不存在。]
+2020-08-11 18:45:53.952 +08:00 [VRB] [CHATGUI PRINT]Teleporter Help:
+/tp help - Show this Message
+/tp debug - Show Debug Window
+/tp config - Show Settings Window
+/tp <name> - Teleport to <name> (e.g. /tp New Gridania)
+2020-08-11 18:45:53.981 +08:00 [VRB] String allocated to 3AB22960
+2020-08-11 18:46:07.386 +08:00 [VRB] [CHATGUI][][“/tp config”出现问题：该命令不存在。]
+2020-08-11 18:46:55.384 +08:00 [VRB] [CHATGUI][][“/tp config”出现问题：该命令不存在。]
+2020-08-11 18:47:59.348 +08:00 [VRB] [CHATGUI][][“/tp 1”出现问题：该命令不存在。]
+2020-08-11 18:47:59.351 +08:00 [ERR] [TeleporterPlugin] No attuned Aetheryte found for ''.
+2020-08-11 18:47:59.351 +08:00 [VRB] [CHATGUI PRINT ERROR][Teleporter] No attuned Aetheryte found for ''.
+2020-08-11 18:47:59.379 +08:00 [VRB] String allocated to 3AB21860
+2020-08-11 18:48:19.570 +08:00 [VRB] [CHATGUI][][“/tp 1”出现问题：该命令不存在。]
+2020-08-11 18:48:19.572 +08:00 [ERR] [TeleporterPlugin] No attuned Aetheryte found for ''.
+2020-08-11 18:48:19.572 +08:00 [VRB] [CHATGUI PRINT ERROR][Teleporter] No attuned Aetheryte found for ''.
+2020-08-11 18:48:19.600 +08:00 [VRB] String allocated to 3AB21860
+2020-08-11 18:48:26.167 +08:00 [VRB] [CHATGUI][][“/tp1”出现问题：该命令不存在。]
+2020-08-11 18:48:30.248 +08:00 [VRB] [CHATGUI][][“/tp 1”出现问题：该命令不存在。]
+2020-08-11 18:48:30.250 +08:00 [ERR] [TeleporterPlugin] No attuned Aetheryte found for ''.
+2020-08-11 18:48:30.250 +08:00 [VRB] [CHATGUI PRINT ERROR][Teleporter] No attuned Aetheryte found for ''.
+2020-08-11 18:48:30.280 +08:00 [VRB] String allocated to 3AB21860
+2020-08-11 18:48:43.528 +08:00 [VRB] [CHATGUI][][“/tp config”出现问题：该命令不存在。]
+2020-08-11 18:48:59.758 +08:00 [VRB] [CHATGUI][][“/tp q”出现问题：该命令不存在。]
+2020-08-11 18:48:59.760 +08:00 [INF] [TeleporterPlugin] Teleporting to '蛇行枝'.
+2020-08-11 18:48:59.760 +08:00 [VRB] [CHATGUI PRINT][Teleporter] Teleporting to '蛇行枝'.
+2020-08-11 18:48:59.790 +08:00 [VRB] String allocated to 3AB22FC0
+2020-08-11 18:48:59.906 +08:00 [VRB] [CHATGUI][][霁夜江山笑正在发动“传送”。]
+2020-08-11 18:49:01.526 +08:00 [VRB] [CHATGUI][][霁夜江山笑中断了发动“传送”。]
+2020-08-11 18:49:47.845 +08:00 [VRB] [CHATGUI][][“/tp 蛇行枝”出现问题：该命令不存在。]
+2020-08-11 18:49:47.850 +08:00 [INF] [TeleporterPlugin] Teleporting to '蛇行枝'.
+2020-08-11 18:49:47.850 +08:00 [VRB] [CHATGUI PRINT][Teleporter] Teleporting to '蛇行枝'.
+2020-08-11 18:49:47.878 +08:00 [VRB] String allocated to 3AB21CA0
+2020-08-11 18:49:47.957 +08:00 [VRB] [CHATGUI][][霁夜江山笑正在发动“传送”。]
+2020-08-11 18:49:48.698 +08:00 [VRB] [CHATGUI][][霁夜江山笑中断了发动“传送”。]
+2020-08-11 18:49:54.803 +08:00 [VRB] [CHATGUI][][播放了«远古之歌／赎罪»。]
+2020-08-11 18:50:15.726 +08:00 [VRB] [CHATGUI][][“/tp 蛇行枝”出现问题：该命令不存在。]
+2020-08-11 18:50:15.728 +08:00 [INF] [TeleporterPlugin] Teleporting to '蛇行枝'.
+2020-08-11 18:50:15.728 +08:00 [VRB] [CHATGUI PRINT][Teleporter] Teleporting to '蛇行枝'.
+2020-08-11 18:50:15.759 +08:00 [VRB] String allocated to 3AB21640
+2020-08-11 18:50:15.840 +08:00 [VRB] [CHATGUI][][霁夜江山笑正在发动“传送”。]
+2020-08-11 18:50:21.464 +08:00 [DBG] HandlePopulateItemLinkDetour 2608208 468768048 - linked:1
+2020-08-11 18:50:21.832 +08:00 [VRB] [CHATGUI][][霁夜江山笑发动了“传送”。]
+2020-08-11 18:50:22.231 +08:00 [DBG] TerritoryType changed: 817
+2020-08-11 18:50:22.306 +08:00 [VRB] [CHATGUI][][离开了幻卡游戏区。]
+2020-08-11 18:50:22.308 +08:00 [VRB] [CHATGUI][][离开了休息区。]
+2020-08-11 18:50:22.797 +08:00 [DBG] HandlePopulateItemLinkDetour 2608272 2608336 - linked:27873
+2020-08-11 18:50:22.797 +08:00 [DBG] HandlePopulateItemLinkDetour 2608272 2608336 - linked:27873
+2020-08-11 18:50:22.797 +08:00 [DBG] HandlePopulateItemLinkDetour 2608272 2608336 - linked:27877
+2020-08-11 18:50:22.797 +08:00 [DBG] HandlePopulateItemLinkDetour 2608272 2608336 - linked:27877
+2020-08-11 18:50:22.798 +08:00 [DBG] HandlePopulateItemLinkDetour 2615104 2615168 - linked:27873
+2020-08-11 18:50:22.798 +08:00 [DBG] HandlePopulateItemLinkDetour 2615104 2615168 - linked:27873
+2020-08-11 18:50:22.798 +08:00 [DBG] HandlePopulateItemLinkDetour 2615104 2615168 - linked:27877
+2020-08-11 18:50:22.798 +08:00 [DBG] HandlePopulateItemLinkDetour 2615104 2615168 - linked:27877
+2020-08-11 18:50:22.799 +08:00 [VRB] [CHATGUI][][进入了休息区。]
+2020-08-11 18:50:24.215 +08:00 [DBG] HandlePopulateItemLinkDetour 2608208 2608272 - linked:27873
+2020-08-11 18:50:24.215 +08:00 [DBG] HandlePopulateItemLinkDetour 2608208 2608272 - linked:27873
+2020-08-11 18:50:24.216 +08:00 [DBG] HandlePopulateItemLinkDetour 2608208 2608272 - linked:27877
+2020-08-11 18:50:24.216 +08:00 [DBG] HandlePopulateItemLinkDetour 2608208 2608272 - linked:27877
+2020-08-11 18:50:24.248 +08:00 [DBG] HandlePopulateItemLinkDetour 2608208 2608272 - linked:27873
+2020-08-11 18:50:24.248 +08:00 [DBG] HandlePopulateItemLinkDetour 2608208 2608272 - linked:27873
+2020-08-11 18:50:24.248 +08:00 [DBG] HandlePopulateItemLinkDetour 2608208 2608272 - linked:27877
+2020-08-11 18:50:24.248 +08:00 [DBG] HandlePopulateItemLinkDetour 2608208 2608272 - linked:27877
+2020-08-11 18:50:24.804 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470490576 - linked:2001785
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470490632 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470490688 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470490744 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470490800 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470490856 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470490912 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470490968 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491024 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491080 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491136 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491192 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491248 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491304 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491360 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491416 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491472 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491528 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491584 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491640 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491696 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491752 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491808 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491864 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491920 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470491976 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492032 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492088 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492144 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492200 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492256 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492312 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492368 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492424 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492480 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492536 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492592 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492648 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492704 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492760 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492816 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492872 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492928 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470492984 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493040 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493096 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493152 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493208 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493264 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493320 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493376 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493432 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493488 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493544 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493600 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493656 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493712 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493768 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493824 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493880 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493936 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470493992 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494048 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494104 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494160 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494216 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494272 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494328 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494384 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494440 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494496 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494552 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494608 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494664 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494720 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494776 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494832 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494888 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470494944 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495000 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495056 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495112 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495168 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495224 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495280 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495336 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495392 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495448 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495504 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495560 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495616 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495672 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495728 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495784 - linked:0
+2020-08-11 18:50:24.805 +08:00 [DBG] HandlePopulateItemLinkDetour 2616736 470495840 - linked:0
+2020-08-11 18:50:30.183 +08:00 [DBG] HandlePopulateItemLinkDetour 2606960 2607024 - linked:27873
+2020-08-11 18:50:30.183 +08:00 [DBG] HandlePopulateItemLinkDetour 2606960 2607024 - linked:27873
+2020-08-11 18:50:30.183 +08:00 [DBG] HandlePopulateItemLinkDetour 2606960 2607024 - linked:27877
+2020-08-11 18:50:30.183 +08:00 [DBG] HandlePopulateItemLinkDetour 2606960 2607024 - linked:27877
+2020-08-11 18:50:30.183 +08:00 [DBG] HandlePopulateItemLinkDetour 2606432 2606496 - linked:27877
+2020-08-11 18:50:30.183 +08:00 [DBG] HandlePopulateItemLinkDetour 2606432 2606496 - linked:27877
+2020-08-11 18:50:30.183 +08:00 [DBG] HandlePopulateItemLinkDetour 2606432 2606496 - linked:27873
+2020-08-11 18:50:30.184 +08:00 [DBG] HandlePopulateItemLinkDetour 2606432 2606496 - linked:27873
+2020-08-11 18:50:30.185 +08:00 [DBG] HandlePopulateItemLinkDetour 2611088 2611152 - linked:27873
+2020-08-11 18:50:30.185 +08:00 [DBG] HandlePopulateItemLinkDetour 2611088 2611152 - linked:27873
+2020-08-11 18:50:30.185 +08:00 [DBG] HandlePopulateItemLinkDetour 2611088 2611152 - linked:27877
+2020-08-11 18:50:30.185 +08:00 [DBG] HandlePopulateItemLinkDetour 2611088 2611152 - linked:27877
+2020-08-11 18:50:30.256 +08:00 [VRB] [CHATGUI][][当前所在副本区为“拉凯提卡大森林”。
+使用“/副本区检查”指令可以随时查看当前所在副本区。]
+2020-08-11 18:51:17.910 +08:00 [VRB] [CHATGUI][][白夜凪发动了“阔步”。]
+2020-08-11 18:51:17.958 +08:00 [VRB] [CHATGUI][][   对白夜凪附加了“阔步”的效果。]
+2020-08-11 18:51:33.343 +08:00 [VRB] [CHATGUI][][白夜凪附加了“内静”效果。]
+2020-08-11 18:51:35.427 +08:00 [VRB] [CHATGUI][][白夜凪发动了“掌握”。]
+2020-08-11 18:51:35.430 +08:00 [VRB] [CHATGUI][][   对白夜凪附加了“掌握”的效果。]
+2020-08-11 18:51:35.923 +08:00 [VRB] [CHATGUI][][“/xlplugin”出现问题：该命令不存在。]
+2020-08-11 18:51:37.277 +08:00 [VRB] [CHATGUI][][白夜凪发动了“崇敬”。]
+2020-08-11 18:51:37.284 +08:00 [VRB] [CHATGUI][][   对白夜凪附加了“崇敬”的效果。]
+2020-08-11 18:51:39.083 +08:00 [VRB] [CHATGUI][][“/xlplugins”出现问题：该命令不存在。]
+2020-08-11 18:51:39.215 +08:00 [VRB] [CHATGUI][][白夜凪发动了“长期俭约”。]
+2020-08-11 18:51:39.220 +08:00 [VRB] [CHATGUI][][   对白夜凪附加了“长期俭约”的效果。]
+2020-08-11 18:51:50.361 +08:00 [VRB] [CHATGUI][][白夜凪发动了“改革”。]
+2020-08-11 18:51:50.363 +08:00 [VRB] [CHATGUI][][   对白夜凪附加了“改革”的效果。]
+2020-08-11 18:51:53.428 +08:00 [VRB] [CHATGUI][][白夜凪附加了“内静”效果。]
+2020-08-11 18:51:56.464 +08:00 [VRB] [CHATGUI][][白夜凪附加了“内静”效果。]
+2020-08-11 18:51:59.667 +08:00 [VRB] [CHATGUI][][白夜凪附加了“内静”效果。]
+2020-08-11 18:52:02.568 +08:00 [VRB] [CHATGUI][][白夜凪附加了“内静”效果。]
+2020-08-11 18:52:04.599 +08:00 [VRB] [CHATGUI][][白夜凪发动了“改革”。]
+2020-08-11 18:52:04.601 +08:00 [VRB] [CHATGUI][][   对白夜凪附加了“改革”的效果。]
+2020-08-11 18:52:20.705 +08:00 [VRB] [CHATGUI][][白夜凪发动了“阔步”。]
+2020-08-11 18:52:20.708 +08:00 [VRB] [CHATGUI][][   对白夜凪附加了“阔步”的效果。]
+2020-08-11 18:54:37.577 +08:00 [INF] Initializing a session..
+2020-08-11 18:54:37.775 +08:00 [VRB] Is32BitProcess : False
+2020-08-11 18:54:37.777 +08:00 [VRB] module copy START
+2020-08-11 18:54:37.777 +08:00 [VRB] Alloc: 53610040
+2020-08-11 18:54:37.795 +08:00 [VRB] copy OK!
+2020-08-11 18:54:37.801 +08:00 [VRB] Module base: 1398870080
+2020-08-11 18:54:37.803 +08:00 [VRB] Module size: 22390194
+2020-08-11 18:54:37.808 +08:00 [VRB] Framework address 34160416
+2020-08-11 18:54:37.921 +08:00 [VRB] ===== G A M E G U I =====
+2020-08-11 18:54:37.921 +08:00 [VRB] GameGuiManager address 538050324
+2020-08-11 18:54:37.921 +08:00 [VRB] SetGlobalBgm address 5365402336
+2020-08-11 18:54:37.921 +08:00 [VRB] HandleItemHover address 5367985856
+2020-08-11 18:54:37.921 +08:00 [VRB] HandleItemOut address 5367984528
+2020-08-11 18:54:37.921 +08:00 [VRB] GetUIObject address 5365572960
+2020-08-11 18:54:37.953 +08:00 [VRB] Chat manager address 538055412
+2020-08-11 18:54:38.047 +08:00 [VRB] ===== G A M E N E T W O R K =====
+2020-08-11 18:54:38.047 +08:00 [VRB] ProcessZonePacketDown address 5375757440
+2020-08-11 18:54:38.047 +08:00 [VRB] ProcessZonePacketUp address 5378009040
+2020-08-11 18:54:38.238 +08:00 [VRB] ===== C L I E N T  S T A T E =====
+2020-08-11 18:54:38.239 +08:00 [VRB] Actor table address 5388665184
+2020-08-11 18:54:38.241 +08:00 [VRB] JobGaugeData address 5388478352
+2020-08-11 18:54:38.242 +08:00 [VRB] Keyboard state buffer address 5388473732
+2020-08-11 18:54:38.242 +08:00 [VRB] SetupTerritoryType address 5369677696
+2020-08-11 18:54:38.246 +08:00 [INF] Starting a session..
+2020-08-11 18:54:38.271 +08:00 [VRB] Starting asset download
+2020-08-11 18:54:38.275 +08:00 [INF] Trying to set up Loc for culture zh
+2020-08-11 18:54:38.284 +08:00 [ERR] Could not get SwapChain address via sig method, falling back to vtable...
+System.Exception: Skip SwapChain sig search.
+   在 Dalamud.Interface.InterfaceManager..ctor(Dalamud dalamud, SigScanner scanner)
+2020-08-11 18:54:38.366 +08:00 [VRB] Found SwapChain via vtable.
+2020-08-11 18:54:38.366 +08:00 [VRB] ===== S W A P C H A I N =====
+2020-08-11 18:54:38.366 +08:00 [VRB] SetCursor address 2006566544
+2020-08-11 18:54:38.367 +08:00 [VRB] Present address 8791671485176
+2020-08-11 18:54:38.367 +08:00 [VRB] ResizeBuffers address 8791671503228
+2020-08-11 18:54:38.374 +08:00 [VRB] Starting data load...
+2020-08-11 18:54:38.382 +08:00 [VRB] Loaded 7 ServerOpCodes.
+2020-08-11 18:54:38.382 +08:00 [VRB] Loaded 1 ClientOpCodes.
+2020-08-11 18:54:39.056 +08:00 [INF] Lumina is ready: E:\ff14\最终幻想XIV\game\sqpack
+2020-08-11 18:54:39.129 +08:00 [ERR] Discord token is null or empty.
+2020-08-11 18:54:39.132 +08:00 [INF] Loading plugins at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins
+2020-08-11 18:54:39.135 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\ChatCoordinates\1.1.0.0
+2020-08-11 18:54:39.135 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\ChatCoordinates\1.1.0.0\ChatCoordinates.dll
+2020-08-11 18:54:39.136 +08:00 [INF] Loading assembly at ChatCoordinates.dll
+2020-08-11 18:54:39.136 +08:00 [INF] Loading types for ChatCoordinates, Version=1.1.0.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 18:54:39.139 +08:00 [VRB] Is32BitProcess : False
+2020-08-11 18:54:39.139 +08:00 [VRB] module copy START
+2020-08-11 18:54:39.139 +08:00 [VRB] Alloc: 57c00040
+2020-08-11 18:54:39.156 +08:00 [VRB] copy OK!
+2020-08-11 18:54:39.156 +08:00 [VRB] Module base: 1472204864
+2020-08-11 18:54:39.156 +08:00 [VRB] Module size: 22390194
+2020-08-11 18:54:39.172 +08:00 [INF] Loaded plugin: ChatCoordinates Plugin
+2020-08-11 18:54:39.173 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\Globetrotter\1.0.1.0
+2020-08-11 18:54:39.173 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\Globetrotter\1.0.1.0\Globetrotter.dll
+2020-08-11 18:54:39.173 +08:00 [INF] Loading assembly at Globetrotter.dll
+2020-08-11 18:54:39.174 +08:00 [INF] Loading types for Globetrotter, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 18:54:39.177 +08:00 [INF] Loaded plugin: Globetrotter
+2020-08-11 18:54:39.177 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MapLinker\1.0.1.0
+2020-08-11 18:54:39.177 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MapLinker\1.0.1.0\MapLinker.dll
+2020-08-11 18:54:39.177 +08:00 [INF] Loading assembly at MapLinker.dll
+2020-08-11 18:54:39.178 +08:00 [INF] Loading types for MapLinker, Version=1.0.1.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 18:54:39.252 +08:00 [INF] Loaded plugin: MapLinker
+2020-08-11 18:54:39.252 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MarketBoardPlugin\0.3.0.0
+2020-08-11 18:54:39.252 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\MarketBoardPlugin\0.3.0.0\MarketBoardPlugin.dll
+2020-08-11 18:54:39.252 +08:00 [INF] Loading assembly at MarketBoardPlugin.dll
+2020-08-11 18:54:39.252 +08:00 [INF] Loading types for MarketBoardPlugin, Version=0.3.0.0, Culture=neutral, PublicKeyToken=null
+2020-08-11 18:54:39.894 +08:00 [INF] Loaded plugin: Market Board plugin
+2020-08-11 18:54:39.894 +08:00 [INF] Loading plugin at C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\TeleporterPlugin\1.0.0.4
+2020-08-11 18:54:39.894 +08:00 [INF] Loading definition for plugin DLL C:\Users\Administrator\source\repos\Dalamud\bin\installedPlugins\TeleporterPlugin\1.0.0.4\TeleporterPlugin.dll
+2020-08-11 18:54:39.894 +08:00 [INF] Loading assembly at TeleporterPlugin.dll
+2020-08-11 18:54:39.895 +08:00 [INF] Loading types for TeleporterPlugin, Version=1.0.0.4, Culture=neutral, PublicKeyToken=null
+2020-08-11 18:54:40.047 +08:00 [INF] Loaded plugin: Teleporter
+2020-08-11 18:54:40.047 +08:00 [INF] Loading plugins at C:\Users\Administrator\source\repos\Dalamud\bin\devPlugins
+2020-08-11 18:54:40.047 +08:00 [INF] Plugin ALL loaded
+2020-08-11 18:54:47.507 +08:00 [DBG] TerritoryType changed: 817
+2020-08-11 18:54:47.783 +08:00 [VRB] [CHATGUI][][欢迎来到艾欧泽亚！ ]
+2020-08-11 18:54:47.796 +08:00 [VRB] [CHATGUI PRINT]已加载Dalamud v5.0.0.4。
+2020-08-11 18:54:47.796 +08:00 [VRB] [CHATGUI PRINT]已加载    >> ChatCoordinates Plugin v1.1.0.0。
+2020-08-11 18:54:47.796 +08:00 [VRB] [CHATGUI PRINT]已加载    >> Globetrotter v1.0.1.0。
+2020-08-11 18:54:47.796 +08:00 [VRB] [CHATGUI PRINT]已加载    >> MapLinker v1.0.1.0。
+2020-08-11 18:54:47.796 +08:00 [VRB] [CHATGUI PRINT]已加载    >> Market Board plugin v0.3.0.0。
+2020-08-11 18:54:47.796 +08:00 [VRB] [CHATGUI PRINT]已加载    >> Teleporter v1.0.0.4。
+2020-08-11 18:54:47.799 +08:00 [INF] Starting plugin update... dry:true
+2020-08-11 18:54:47.800 +08:00 [INF] Up to date: ChatCoordinates
+2020-08-11 18:54:47.800 +08:00 [INF] Up to date: Globetrotter
+2020-08-11 18:54:47.800 +08:00 [INF] Up to date: MapLinker
+2020-08-11 18:54:47.800 +08:00 [INF] Has not applicable API level: Market board
+2020-08-11 18:54:47.800 +08:00 [INF] Up to date: TeleporterPlugin
+2020-08-11 18:54:47.800 +08:00 [INF] Plugin update OK.
+2020-08-11 18:54:47.802 +08:00 [VRB] [CHATGUI][][感谢您对于最终幻想14的支持，如有问题欢迎使用客服电话和论坛服务。 ]
+2020-08-11 18:54:47.821 +08:00 [VRB] [CHATGUI][][请勿相信游戏内任何礼包、福袋性质的网址，谨防被骗。]
+2020-08-11 18:54:47.822 +08:00 [VRB] [CHATGUI][][发现游戏内玩家使用外挂、代打、出售土地、买卖游戏币、使用非官方允许的第三方软件等违规行为，请及时举报。]
+2020-08-11 18:54:47.823 +08:00 [VRB] [CHATGUI][][举报方式：发送邮件至专项举报邮箱sykf@sdo.com]
+2020-08-11 18:54:47.830 +08:00 [VRB] [CHATGUI][][最终幻想14官网：ff.sdo.com]
+2020-08-11 18:54:47.832 +08:00 [DBG] HandlePopulateItemLinkDetour 1370704 1370768 - linked:27873
+2020-08-11 18:54:47.832 +08:00 [DBG] HandlePopulateItemLinkDetour 1370704 1370768 - linked:27873
+2020-08-11 18:54:47.832 +08:00 [DBG] HandlePopulateItemLinkDetour 1370704 1370768 - linked:27877
+2020-08-11 18:54:47.832 +08:00 [DBG] HandlePopulateItemLinkDetour 1370704 1370768 - linked:27877
+2020-08-11 18:54:47.834 +08:00 [VRB] String allocated to 169C06F0
+2020-08-11 18:54:47.835 +08:00 [VRB] String allocated to 169C06F0
+2020-08-11 18:54:47.835 +08:00 [VRB] String allocated to 169C06F0
+2020-08-11 18:54:47.835 +08:00 [VRB] String allocated to 169C06F0
+2020-08-11 18:54:47.835 +08:00 [VRB] String allocated to 169C06F0
+2020-08-11 18:54:47.835 +08:00 [VRB] String allocated to 169C06F0
+2020-08-11 18:54:47.953 +08:00 [VRB] [CHATGUI][][进入了休息区。]
+2020-08-11 18:54:48.497 +08:00 [VRB] [CHATGUI][][部队消息：部队公告
+“新建神秘地下组织代号1035379540”]
+2020-08-11 18:54:51.278 +08:00 [DBG] HandlePopulateItemLinkDetour 1363872 1363936 - linked:27873
+2020-08-11 18:54:51.278 +08:00 [DBG] HandlePopulateItemLinkDetour 1363872 1363936 - linked:27873
+2020-08-11 18:54:51.278 +08:00 [DBG] HandlePopulateItemLinkDetour 1363872 1363936 - linked:27877
+2020-08-11 18:54:51.278 +08:00 [DBG] HandlePopulateItemLinkDetour 1363872 1363936 - linked:27877
+2020-08-11 18:54:51.445 +08:00 [DBG] HandlePopulateItemLinkDetour 1363808 1363872 - linked:27873
+2020-08-11 18:54:51.445 +08:00 [DBG] HandlePopulateItemLinkDetour 1363808 1363872 - linked:27873
+2020-08-11 18:54:51.445 +08:00 [DBG] HandlePopulateItemLinkDetour 1363808 1363872 - linked:27877
+2020-08-11 18:54:51.445 +08:00 [DBG] HandlePopulateItemLinkDetour 1363808 1363872 - linked:27877
+2020-08-11 18:54:51.462 +08:00 [DBG] HandlePopulateItemLinkDetour 1363808 1363872 - linked:27873
+2020-08-11 18:54:51.462 +08:00 [DBG] HandlePopulateItemLinkDetour 1363808 1363872 - linked:27873
+2020-08-11 18:54:51.462 +08:00 [DBG] HandlePopulateItemLinkDetour 1363808 1363872 - linked:27877
+2020-08-11 18:54:51.462 +08:00 [DBG] HandlePopulateItemLinkDetour 1363808 1363872 - linked:27877
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472325344 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472325400 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472325456 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472325512 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472325568 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472325624 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472325680 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472325736 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472325792 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472325848 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472325904 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472325960 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472326016 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472326072 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472326128 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472326184 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472326240 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472326296 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472326352 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472326408 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472326464 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472326520 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472326576 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472326632 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472326688 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472326744 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472326800 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472326856 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472326912 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472326968 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472327024 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472327080 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472327136 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472327192 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472327248 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472327304 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472327360 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472327416 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472327472 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472327528 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472327584 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472327640 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472327696 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472327752 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472327808 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472327864 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472327920 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472327976 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472328032 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472328088 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472328144 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472328200 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472328256 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472328312 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472328368 - linked:0
+2020-08-11 18:54:54.105 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472328424 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472328480 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472328536 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472328592 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472328648 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472328704 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472328760 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472328816 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472328872 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472328928 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472328984 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472329040 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472329096 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472329152 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472329208 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472329264 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472329320 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472329376 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472329432 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472329488 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472329544 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472329600 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472329656 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472329712 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472329768 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472329824 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472329880 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472329936 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472329992 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472330048 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472330104 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472330160 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472330216 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472330272 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472330328 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472330384 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472330440 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472330496 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472330552 - linked:0
+2020-08-11 18:54:54.106 +08:00 [DBG] HandlePopulateItemLinkDetour 1372336 472330608 - linked:0
+2020-08-11 18:54:54.844 +08:00 [DBG] HandlePopulateItemLinkDetour 1362560 1362624 - linked:27873
+2020-08-11 18:54:54.844 +08:00 [DBG] HandlePopulateItemLinkDetour 1362560 1362624 - linked:27873
+2020-08-11 18:54:54.844 +08:00 [DBG] HandlePopulateItemLinkDetour 1362560 1362624 - linked:27877
+2020-08-11 18:54:54.844 +08:00 [DBG] HandlePopulateItemLinkDetour 1362560 1362624 - linked:27877
+2020-08-11 18:54:54.844 +08:00 [DBG] HandlePopulateItemLinkDetour 1362032 1362096 - linked:27877
+2020-08-11 18:54:54.844 +08:00 [DBG] HandlePopulateItemLinkDetour 1362032 1362096 - linked:27877
+2020-08-11 18:54:54.844 +08:00 [DBG] HandlePopulateItemLinkDetour 1362032 1362096 - linked:27873
+2020-08-11 18:54:54.844 +08:00 [DBG] HandlePopulateItemLinkDetour 1362032 1362096 - linked:27873
+2020-08-11 18:54:54.845 +08:00 [DBG] HandlePopulateItemLinkDetour 1366688 1366752 - linked:27873
+2020-08-11 18:54:54.845 +08:00 [DBG] HandlePopulateItemLinkDetour 1366688 1366752 - linked:27873
+2020-08-11 18:54:54.845 +08:00 [DBG] HandlePopulateItemLinkDetour 1366688 1366752 - linked:27877
+2020-08-11 18:54:54.845 +08:00 [DBG] HandlePopulateItemLinkDetour 1366688 1366752 - linked:27877
+2020-08-11 18:54:54.905 +08:00 [VRB] [CHATGUI][][当前所在副本区为“拉凯提卡大森林”。
+使用“/副本区检查”指令可以随时查看当前所在副本区。]
+2020-08-11 18:54:57.156 +08:00 [VRB] [CHATGUI][][泡泡袖乘上了猪大仙。]
+2020-08-11 18:55:11.037 +08:00 [VRB] [CHATGUI][][泡泡袖使用了“大麻袋”。]
+2020-08-11 18:55:32.535 +08:00 [VRB] [CHATGUI][][泡泡袖乘上了伊克西翁。]

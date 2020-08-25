@@ -2,18 +2,23 @@ using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
+using Dalamud.Data;
 using Dalamud.Game;
 using Serilog;
 
-namespace Dalamud {
-    internal static class Util {
-        public static void DumpMemory(IntPtr offset, int len = 512) {
+namespace Dalamud
+{
+    internal static class Util
+    {
+        public static void DumpMemory(IntPtr offset, int len = 512)
+        {
             var data = new byte[len];
             Marshal.Copy(offset, data, 0, len);
             Log.Information(ByteArrayToHex(data));
         }
 
-        public static string ByteArrayToHex(byte[] bytes, int offset = 0, int bytesPerLine = 16) {
+        public static string ByteArrayToHex(byte[] bytes, int offset = 0, int bytesPerLine = 16)
+        {
             if (bytes == null) return string.Empty;
 
             var hexChars = "0123456789ABCDEF".ToCharArray();
@@ -27,7 +32,8 @@ namespace Dalamud {
 
             var sb = new StringBuilder(numLines * lineLength);
 
-            for (var i = 0; i < bytes.Length; i += bytesPerLine) {
+            for (var i = 0; i < bytes.Length; i += bytesPerLine)
+            {
                 var h = i + offset;
 
                 line[0] = hexChars[(h >> 28) & 0xF];
@@ -42,18 +48,22 @@ namespace Dalamud {
                 var hexColumn = offsetBlock;
                 var charColumn = byteBlock;
 
-                for (var j = 0; j < bytesPerLine; j++) {
+                for (var j = 0; j < bytesPerLine; j++)
+                {
                     if (j > 0 && (j & 7) == 0) hexColumn++;
 
-                    if (i + j >= bytes.Length) {
+                    if (i + j >= bytes.Length)
+                    {
                         line[hexColumn] = ' ';
                         line[hexColumn + 1] = ' ';
                         line[charColumn] = ' ';
-                    } else {
+                    }
+                    else
+                    {
                         var by = bytes[i + j];
                         line[hexColumn] = hexChars[(by >> 4) & 0xF];
                         line[hexColumn + 1] = hexChars[by & 0xF];
-                        line[charColumn] = by < 32 ? '.' : (char) by;
+                        line[charColumn] = by < 32 ? '.' : (char)by;
                     }
 
                     hexColumn += 3;
@@ -67,5 +77,27 @@ namespace Dalamud {
         }
 
         public static string AssemblyVersion { get; } = Assembly.GetAssembly(typeof(ChatHandlers)).GetName().Version.ToString();
+
+        public static void sendToFFyu(IntPtr hwnd, int type, string msgString)
+        {
+            byte[] sarr = System.Text.Encoding.Default.GetBytes(msgString);
+            int len = sarr.Length;
+            COPYDATASTRUCT cds = new COPYDATASTRUCT();
+            cds.dwData = (IntPtr)100;
+            cds.lpData = msgString;
+            cds.cbData = len + 1;
+            if(messageThread  != null)
+            {
+                messageThread.RunOnThread(delegate {
+                    SendMessage(hwnd, 0x004A, type, ref cds);
+                });
+            }
+        }
+
+        public static ThreadExecutor messageThread = new ThreadExecutor();
+
+        //Win32 API函数：
+        [DllImport("User32.dll", EntryPoint = "SendMessage")]
+        private static extern int SendMessage(IntPtr hWnd, int msg, int wParam, ref COPYDATASTRUCT lParam);
     }
 }

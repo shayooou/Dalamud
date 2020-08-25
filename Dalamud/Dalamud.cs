@@ -153,6 +153,7 @@ namespace Dalamud {
 
                         PluginManager = new PluginManager(this, pluginDir, this.StartInfo.DefaultPluginDirectory);
                         PluginManager.LoadPlugins();
+                        Log.Information("Plugin ALL loaded");
                     }
                     catch (Exception ex)
                     {

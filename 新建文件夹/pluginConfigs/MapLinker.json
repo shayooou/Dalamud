@@ -1,0 +1,16 @@
+{
+  "$type": "MapLinker.Configuration, MapLinker",
+  "MapLinkerLanguage": 5,
+  "ShowTooltips": true,
+  "FilterDuplicates": false,
+  "UseFloatingWindow": false,
+  "UILanguage": "zh",
+  "MapLinkMessageList": [],
+  "Recording": true,
+  "Coord": true,
+  "Teleport": true,
+  "PrintMessage": false,
+  "PrintError": true,
+  "FilteredChannels": [],
+  "Version": 0
+}

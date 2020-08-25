@@ -19,6 +19,7 @@ namespace Dalamud.Game {
         public SigScanner(ProcessModule module, bool doCopy = false) {
             Module = module;
             Is32BitProcess = !Environment.Is64BitProcess;
+            Log.Verbose($"Is32BitProcess : {Is32BitProcess}");
             IsCopy = doCopy;
 
             // Limit the search space to .text section.

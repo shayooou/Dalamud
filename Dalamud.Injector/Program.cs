@@ -14,13 +14,16 @@ using Dalamud.Game.Chat;
 using EasyHook;
 using Newtonsoft.Json;
 
-namespace Dalamud.Injector {
-    internal static class Program {
+namespace Dalamud.Injector
+{
+    internal static class Program
+    {
         static private Process process = null;
 
-        private static void Main(string[] args) {
+        private static void Main(string[] args)
+        {
 
-            AppDomain.CurrentDomain.UnhandledException += delegate(object sender, UnhandledExceptionEventArgs eventArgs)
+            AppDomain.CurrentDomain.UnhandledException += delegate (object sender, UnhandledExceptionEventArgs eventArgs)
             {
                 File.WriteAllText("InjectorException.txt", eventArgs.ExceptionObject.ToString());
 #if !DEBUG
@@ -33,11 +36,13 @@ namespace Dalamud.Injector {
 
 
             var pid = -1;
-            if (args.Length >= 1) {
+            if (args.Length >= 1)
+            {
                 pid = int.Parse(args[0]);
             }
 
-            switch (pid) {
+            switch (pid)
+            {
                 case -1:
                     process = Process.GetProcessesByName("ffxiv_dx11")[0];
                     break;
@@ -53,13 +58,12 @@ namespace Dalamud.Injector {
             }
 
             DalamudStartInfo startInfo;
-            if (args.Length <= 1) {
+            if (args.Length <= 1)
+            {
                 startInfo = GetDefaultStartInfo();
-                Console.WriteLine("\nA Dalamud start info was not found in the program arguments. One has been generated for you.");
-                Console.WriteLine("\nCopy the following contents into the program arguments:");
-                Console.WriteLine();
-                Console.WriteLine(Convert.ToBase64String(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(startInfo))));
-            } else {
+            }
+            else
+            {
                 startInfo = JsonConvert.DeserializeObject<DalamudStartInfo>(Encoding.UTF8.GetString(Convert.FromBase64String(args[1])));
             }
 
@@ -81,19 +85,27 @@ namespace Dalamud.Injector {
 #endif
         }
 
-        private static void Inject(Process process, DalamudStartInfo info) {
-            Console.WriteLine($"Injecting to {process.Id}");
+        private static void Inject(Process process, DalamudStartInfo info)
+        {
+            Console.WriteLine($"注入插件 to {process.Id}");
 
             // File check
             var libPath = Path.GetFullPath("Dalamud.dll");
-            if (!File.Exists(libPath)) {
+            if (!File.Exists(libPath))
+            {
                 Console.WriteLine($"Can't find a dll on {libPath}");
                 return;
             }
+            try
+            {
+                RemoteHooking.Inject(process.Id, InjectionOptions.DoNotRequireStrongName, libPath, libPath, info);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
 
-            RemoteHooking.Inject(process.Id, InjectionOptions.DoNotRequireStrongName, libPath, libPath, info);
-
-            Console.WriteLine("Injected");
+            Console.WriteLine("注入成功");
         }
 
         private static void NativeInject(Process process)
@@ -165,17 +177,23 @@ namespace Dalamud.Injector {
             NativeFunctions.CloseHandle(handle);
         }
 
-        private static DalamudStartInfo GetDefaultStartInfo() {
+        private static DalamudStartInfo GetDefaultStartInfo()
+        {
             var ffxivDir = Path.GetDirectoryName(process.MainModule.FileName);
-            var startInfo = new DalamudStartInfo {
+
+            var startInfo = new DalamudStartInfo
+            {
                 WorkingDirectory = null,
-                ConfigurationPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "XIVLauncher", "dalamudConfig.json"),
-                PluginDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "XIVLauncher", "installedPlugins"),
-                DefaultPluginDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "XIVLauncher", "devPlugins"),
+                ConfigurationPath = Path.Combine(Directory.GetCurrentDirectory(), "dalamudConfig.json"),
+                PluginDirectory = Path.Combine(Directory.GetCurrentDirectory(), "installedPlugins"),
+                DefaultPluginDirectory = Path.Combine(Directory.GetCurrentDirectory(), "devPlugins"),
 
                 GameVersion = File.ReadAllText(Path.Combine(ffxivDir, "ffxivgame.ver")),
-                Language = ClientLanguage.English
+                Language = ClientLanguage.ChineseSimplified
             };
+
+            Directory.CreateDirectory(startInfo.PluginDirectory);
+            Directory.CreateDirectory(startInfo.DefaultPluginDirectory);
 
             Console.WriteLine("Creating a StartInfo with:\n" +
                               $"ConfigurationPath: {startInfo.ConfigurationPath}\n" +

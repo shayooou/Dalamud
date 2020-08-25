@@ -1,0 +1,23 @@
+{
+  "DiscordFeatureConfig": {
+    "Token": "",
+    "CheckForDuplicateMessages": false,
+    "ChatDelayMs": 1000,
+    "DisableEmbeds": false,
+    "OwnerUserId": 123830058426040321,
+    "ChatTypeConfigurations": [],
+    "CfNotificationChannel": null,
+    "CfPreferredRoleChannel": null,
+    "RetainerNotificationChannel": null
+  },
+  "OptOutMbCollection": false,
+  "BadWords": [],
+  "PreferredRoleReminders": null,
+  "DutyFinderTaskbarFlash": true,
+  "LanguageOverride": null,
+  "LastVersion": "5.0.0.4",
+  "GeneralChatType": 1,
+  "DoPluginTest": false,
+  "DoDalamudTest": false,
+  "GlobalUiScale": 1.0
+}
