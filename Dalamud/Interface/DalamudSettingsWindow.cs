@@ -1,23 +1,13 @@
 using System;
-using System.Collections.Generic;
-using System.Dynamic;
 using System.Linq;
-using System.Net.Mime;
 using System.Numerics;
 using CheapLoc;
 using Dalamud.Game.Chat;
-using Dalamud.Game.ClientState.Actors.Types;
-using Dalamud.Game.ClientState.Actors.Types.NonPlayer;
-using Dalamud.Plugin;
 using ImGuiNET;
-using JetBrains.Annotations;
-using Newtonsoft.Json;
-using Serilog;
-using SharpDX.Direct3D11;
 
 namespace Dalamud.Interface
 {
-    class DalamudSettingsWindow {
+    internal class DalamudSettingsWindow {
         private readonly Dalamud dalamud;
 
         public DalamudSettingsWindow(Dalamud dalamud) {
@@ -27,8 +17,12 @@ namespace Dalamud.Interface
             this.dalamudMessagesChatType = (int) this.dalamud.Configuration.GeneralChatType;
 
             this.doCfTaskBarFlash = this.dalamud.Configuration.DutyFinderTaskbarFlash;
+            this.doCfChatMessage = this.dalamud.Configuration.DutyFinderChatMessage;
 
             this.globalUiScale = this.dalamud.Configuration.GlobalUiScale;
+            this.doToggleUiHide = this.dalamud.Configuration.ToggleUiHide;
+            this.doToggleUiHideDuringCutscenes = this.dalamud.Configuration.ToggleUiHideDuringCutscenes;
+            this.doToggleUiHideDuringGpose = this.dalamud.Configuration.ToggleUiHideDuringGpose;
 
             this.doPluginTest = this.dalamud.Configuration.DoPluginTest;
             this.doDalamudTest = this.dalamud.Configuration.DoDalamudTest;
@@ -47,10 +41,14 @@ namespace Dalamud.Interface
         private int dalamudMessagesChatType;
 
         private bool doCfTaskBarFlash;
+        private bool doCfChatMessage;
 
         private const float MinScale = 0.3f;
         private const float MaxScale = 2.0f;
         private float globalUiScale;
+        private bool doToggleUiHide;
+        private bool doToggleUiHideDuringCutscenes;
+        private bool doToggleUiHideDuringGpose;
 
         #region Experimental
 
@@ -90,6 +88,10 @@ namespace Dalamud.Interface
                     ImGui.Checkbox(Loc.Localize("DalamudSettingsFlash", "Flash FFXIV window on duty pop"), ref this.doCfTaskBarFlash);
                     ImGui.TextColored(this.hintTextColor, Loc.Localize("DalamudSettingsFlashHint", "Select, if the FFXIV window should be flashed in your task bar when a duty is ready."));
 
+                    ImGui.Checkbox(Loc.Localize("DalamudSettingsDutyFinderMessage", "Chatlog message on duty pop"), ref this.doCfChatMessage);
+                    ImGui.TextColored(this.hintTextColor, Loc.Localize("DalamudSettingsDutyFinderMessageHint", "Select, if a message should be sent in the FFXIV chat when a duty is ready."));
+
+
                     ImGui.EndTabItem();
                 }
 
@@ -98,6 +100,19 @@ namespace Dalamud.Interface
                         ImGui.GetIO().FontGlobalScale = this.globalUiScale;
 
                     ImGui.TextColored(this.hintTextColor, Loc.Localize("DalamudSettingsGlobalUiScaleHint", "Scale all XIVLauncher UI elements - useful for 4K displays."));
+
+                    ImGui.Dummy(new Vector2(10f, 16f));
+
+                    ImGui.TextColored(this.hintTextColor, Loc.Localize("DalamudSettingToggleUiHideOptOutNote", "Plugins may independently opt out of the settings below."));
+
+                    ImGui.Checkbox(Loc.Localize("DalamudSettingToggleUiHide", "Hide plugin UI when the game UI is toggled off."), ref this.doToggleUiHide);
+                    ImGui.TextColored(this.hintTextColor, Loc.Localize("DalamudSettingToggleUiHideHint", "Check this box to hide any open windows by plugins when toggling the game overlay."));
+
+                    ImGui.Checkbox(Loc.Localize("DalamudSettingToggleUiHideDuringCutscenes", "Hide plugin UI during cutscenes."), ref this.doToggleUiHideDuringCutscenes);
+                    ImGui.TextColored(this.hintTextColor, Loc.Localize("DalamudSettingToggleUiHideDuringCutscenesHint", "Check this box to hide any open windows by plugins during cutscenes."));
+
+                    ImGui.Checkbox(Loc.Localize("DalamudSettingToggleUiHideDuringGpose", "Hide plugin UI while gpose is active."), ref this.doToggleUiHideDuringGpose);
+                    ImGui.TextColored(this.hintTextColor, Loc.Localize("DalamudSettingToggleUiHideDuringGposeHint", "Check this box to hide any open windows by plugins while gpose is active."));
 
                     ImGui.EndTabItem();
                 }
@@ -143,8 +158,12 @@ namespace Dalamud.Interface
             this.dalamud.Configuration.GeneralChatType = (XivChatType) this.dalamudMessagesChatType;
 
             this.dalamud.Configuration.DutyFinderTaskbarFlash = this.doCfTaskBarFlash;
+            this.dalamud.Configuration.DutyFinderChatMessage = this.doCfChatMessage;
 
             this.dalamud.Configuration.GlobalUiScale = this.globalUiScale;
+            this.dalamud.Configuration.ToggleUiHide = this.doToggleUiHide;
+            this.dalamud.Configuration.ToggleUiHideDuringCutscenes = this.doToggleUiHideDuringCutscenes;
+            this.dalamud.Configuration.ToggleUiHideDuringGpose = this.doToggleUiHideDuringGpose;
 
             this.dalamud.Configuration.DoPluginTest = this.doPluginTest;
             this.dalamud.Configuration.DoDalamudTest = this.doDalamudTest;

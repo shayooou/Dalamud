@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dalamud.Game.ClientState;
+using Dalamud.Game.Internal.Gui;
 using ImGuiNET;
 using ImGuiScene;
 using Serilog;
+using SharpDX.Direct3D11;
 
 namespace Dalamud.Interface
 {
@@ -31,8 +34,36 @@ namespace Dalamud.Interface
         /// </summary>
         public event RawDX11Scene.BuildUIDelegate OnBuildUi;
 
-        private readonly InterfaceManager interfaceManager;
-        #if DEBUG
+        /// <summary>
+        /// Choose if this plugin should hide its UI automatically when the game's UI is hidden.
+        /// </summary>
+        public bool DisableAutomaticUiHide { get; set; } = false;
+
+        /// <summary>
+        /// Choose if this plugin should hide its UI automatically when the user toggles the UI.
+        /// </summary>
+        public bool DisableUserUiHide { get; set; } = false;
+
+        /// <summary>
+        /// Choose if this plugin should hide its UI automatically during cutscenes.
+        /// </summary>
+        public bool DisableCutsceneUiHide { get; set; } = false;
+
+        /// <summary>
+        /// Choose if this plugin should hide its UI automatically while gpose is active.
+        /// </summary>
+        public bool DisableGposeUiHide { get; set; } = false;
+
+        private bool CutsceneActive => this.dalamud.ClientState != null &&
+                                       this.dalamud.ClientState.Condition[ConditionFlag.OccupiedInCutSceneEvent] ||
+                                       this.dalamud.ClientState.Condition[ConditionFlag.WatchingCutscene78];
+
+        private bool GposeActive => this.dalamud.ClientState != null &&
+                                    this.dalamud.ClientState.Condition[ConditionFlag.WatchingCutscene];
+
+        private Dalamud dalamud;
+
+#if DEBUG
         internal static bool DoStats { get; set; } = true;
         #else
         internal static bool DoStats { get; set; } = false;
@@ -47,11 +78,11 @@ namespace Dalamud.Interface
         /// </summary>
         /// <param name="interfaceManager">The interface manager to register on.</param>
         /// <param name="namespaceName">The plugin namespace.</param>
-        internal UiBuilder(InterfaceManager interfaceManager, string namespaceName) {
+        internal UiBuilder(Dalamud dalamud, string namespaceName) {
             this.namespaceName = namespaceName;
 
-            this.interfaceManager = interfaceManager;
-            this.interfaceManager.OnDraw += OnDraw;
+            this.dalamud = dalamud;
+            this.dalamud.InterfaceManager.OnDraw += OnDraw;
             this.stopwatch = new System.Diagnostics.Stopwatch();
         }
 
@@ -59,7 +90,7 @@ namespace Dalamud.Interface
         /// Unregister the UiBuilder. Do not call this in plugin code.
         /// </summary>
         public void Dispose() {
-            this.interfaceManager.OnDraw -= OnDraw;
+            this.dalamud.InterfaceManager.OnDraw -= OnDraw;
         }
 
         /// <summary>
@@ -68,7 +99,7 @@ namespace Dalamud.Interface
         /// <param name="filePath">The full filepath to the image.</param>
         /// <returns>A <see cref="TextureWrap"/> object wrapping the created image.  Use <see cref="TextureWrap.ImGuiHandle"/> inside ImGui.Image()</returns>
         public TextureWrap LoadImage(string filePath) =>
-            this.interfaceManager.LoadImage(filePath);
+            this.dalamud.InterfaceManager.LoadImage(filePath);
 
         /// <summary>
         /// Loads an image from a byte stream, such as a png downloaded into memory.
@@ -76,7 +107,7 @@ namespace Dalamud.Interface
         /// <param name="imageData">A byte array containing the raw image data.</param>
         /// <returns>A <see cref="TextureWrap"/> object wrapping the created image.  Use <see cref="TextureWrap.ImGuiHandle"/> inside ImGui.Image()</returns>
         public TextureWrap LoadImage(byte[] imageData) =>
-            this.interfaceManager.LoadImage(imageData);
+            this.dalamud.InterfaceManager.LoadImage(imageData);
 
         /// <summary>
         /// Loads an image from raw unformatted pixel data, with no type or header information.  To load formatted data, use <see cref="LoadImage(byte[])"/>.
@@ -87,19 +118,19 @@ namespace Dalamud.Interface
         /// <param name="numChannels">The number of channels (bytes per pixel) of the image contained in <paramref name="imageData"/>.  This should usually be 4.</param>
         /// <returns>A <see cref="TextureWrap"/> object wrapping the created image.  Use <see cref="TextureWrap.ImGuiHandle"/> inside ImGui.Image()</returns>
         public TextureWrap LoadImageRaw(byte[] imageData, int width, int height, int numChannels) =>
-            this.interfaceManager.LoadImageRaw(imageData, width, height, numChannels);
+            this.dalamud.InterfaceManager.LoadImageRaw(imageData, width, height, numChannels);
 
         /// <summary>
         /// An event that is called any time ImGui fonts need to be rebuilt.<br/>
         /// Any ImFontPtr objects that you store <strong>can be invalidated</strong> when fonts are rebuilt
         /// (at any time), so you should both reload your custom fonts and restore those
         /// pointers inside this handler.<br/>
-        /// <strong>PLEASE remove this handler inside Dipose, or when you no longer need your fonts!</strong>
+        /// <strong>PLEASE remove this handler inside Dispose, or when you no longer need your fonts!</strong>
         /// </summary>
         public Action OnBuildFonts
         {
-            get { return this.interfaceManager.OnBuildFonts; }
-            set { this.interfaceManager.OnBuildFonts = value; }
+            get { return this.dalamud.InterfaceManager.OnBuildFonts; }
+            set { this.dalamud.InterfaceManager.OnBuildFonts = value; }
         }
 
         /// <summary>
@@ -107,8 +138,11 @@ namespace Dalamud.Interface
         /// This will invoke any <see cref="OnBuildFonts"/> handlers and ensure that any loaded fonts are
         /// ready to be used on the next UI frame.
         /// </summary>
-        public void RebuildFonts() =>
-            this.interfaceManager.RebuildFonts();
+        public void RebuildFonts()
+        {
+            Log.Verbose("[FONT] {0} plugin is initiating FONT REBUILD", this.namespaceName);
+            this.dalamud.InterfaceManager.RebuildFonts();
+        }
 
         /// <summary>
         /// Event that is fired when the plugin should open its configuration interface.
@@ -118,6 +152,12 @@ namespace Dalamud.Interface
         private bool hasErrorWindow;
 
         private void OnDraw() {
+
+            if (this.dalamud.Framework.Gui.GameUiHidden && this.dalamud.Configuration.ToggleUiHide && !(DisableUserUiHide || DisableAutomaticUiHide) ||
+                CutsceneActive && this.dalamud.Configuration.ToggleUiHideDuringCutscenes && !(DisableCutsceneUiHide || DisableAutomaticUiHide) ||
+                GposeActive && this.dalamud.Configuration.ToggleUiHideDuringGpose && !(DisableGposeUiHide || DisableAutomaticUiHide))
+                return;
+
             ImGui.PushID(this.namespaceName);
             if (DoStats) {
                 this.stopwatch.Restart();

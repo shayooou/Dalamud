@@ -18,18 +18,8 @@ namespace Dalamud
 
         public List<string> BadWords { get; set; }
 
-        public enum PreferredRole
-        {
-            None,
-            All,
-            Tank,
-            Dps,
-            Healer
-        }
-
-        public Dictionary<int, PreferredRole> PreferredRoleReminders { get; set; }
-
         public bool DutyFinderTaskbarFlash { get; set; } = true;
+        public bool DutyFinderChatMessage { get; set; } = true;
 
         public string LanguageOverride { get; set; }
 
@@ -41,6 +31,9 @@ namespace Dalamud
         public bool DoDalamudTest { get; set; } = false;
 
         public float GlobalUiScale { get; set; } = 1.0f;
+        public bool ToggleUiHide { get; set; } = true;
+        public bool ToggleUiHideDuringCutscenes { get; set; } = true;
+        public bool ToggleUiHideDuringGpose { get; set; } = true;
 
         [JsonIgnore]
         public string ConfigPath;

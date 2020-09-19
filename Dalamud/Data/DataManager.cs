@@ -80,23 +80,27 @@ namespace Dalamud.Data
                 Log.Verbose("Loaded {0} ClientOpCodes.", clientOpCodeDict.Count);
 
 
-                var luminaOptions = new LuminaOptions
-                {
+                var luminaOptions = new LuminaOptions {
                     CacheFileResources = true,
+
+#if DEBUG
+                    PanicOnSheetChecksumMismatch = true,
+#else
                     PanicOnSheetChecksumMismatch = false,
+#endif
+
+                    DefaultExcelLanguage = this.language switch {
+                        ClientLanguage.Japanese => Language.Japanese,
+                        ClientLanguage.English => Language.English,
+                        ClientLanguage.German => Language.German,
+                        ClientLanguage.French => Language.French,
+                        ClientLanguage.ChineseSimplified => Language.ChineseSimplified,
+                        _ => throw new ArgumentOutOfRangeException(nameof(this.language),
+                                                                   "Unknown Language: " + this.language)
+                    }
                 };
 
-                luminaOptions.DefaultExcelLanguage = this.language switch {
-                    ClientLanguage.Japanese => Language.Japanese,
-                    ClientLanguage.English => Language.English,
-                    ClientLanguage.German => Language.German,
-                    ClientLanguage.French => Language.French,
-                    ClientLanguage.ChineseSimplified => Language.ChineseSimplified,
-                    _ => throw new ArgumentOutOfRangeException(nameof(this.language),
-                                                               "Unknown Language: " + this.language)
-                };
-
-                gameData = new Lumina.Lumina(Path.Combine(Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName), "sqpack"), luminaOptions);
+                this.gameData = new Lumina.Lumina(Path.Combine(Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName), "sqpack"), luminaOptions);
 
                 Log.Information("Lumina is ready: {0}", gameData.DataPath);
 
@@ -104,10 +108,16 @@ namespace Dalamud.Data
                 
                 this.luminaResourceThread = new Thread( () =>
                 {
-                    while( true )
+                    while (true)
                     {
-                        gameData.ProcessFileHandleQueue();
-                        Thread.Yield();
+                        if (gameData.FileHandleManager.HasPendingFileLoads)
+                        {
+                            gameData.ProcessFileHandleQueue();
+                        }
+                        else
+                        {
+                            Thread.Sleep(5);
+                        }
                     }
                     // ReSharper disable once FunctionNeverReturns
                 });

@@ -11,9 +11,8 @@ using Serilog;
 
 namespace Dalamud.Plugin
 {
-    internal class PluginManager
-    {
-        public const int DALAMUD_API_LEVEL = 1;
+    internal class PluginManager {
+        public static int DALAMUD_API_LEVEL = 1;
 
         private readonly Dalamud dalamud;
         private readonly string pluginDirectory;
@@ -27,8 +26,7 @@ namespace Dalamud.Plugin
 
         public List<(string SourcePluginName, string SubPluginName, Action<ExpandoObject> SubAction)> IpcSubscriptions = new List<(string SourcePluginName, string SubPluginName, Action<ExpandoObject> SubAction)>();
 
-        public PluginManager(Dalamud dalamud, string pluginDirectory, string devPluginDirectory)
-        {
+        public PluginManager(Dalamud dalamud, string pluginDirectory, string devPluginDirectory) {
             this.dalamud = dalamud;
             this.pluginDirectory = pluginDirectory;
             this.devPluginDirectory = devPluginDirectory;
@@ -40,49 +38,41 @@ namespace Dalamud.Plugin
             // This handler should only be invoked on things that fail regular lookups, but it *is* global to this appdomain
             AppDomain.CurrentDomain.AssemblyResolve += (object source, ResolveEventArgs e) =>
             {
-                try
-                {
+                try {
                     Log.Debug($"Resolving missing assembly {e.Name}");
                     // This looks weird but I'm pretty sure it's actually correct.  Pretty sure.  Probably.
                     var assemblyPath = Path.Combine(Path.GetDirectoryName(e.RequestingAssembly.Location),
                                                     new AssemblyName(e.Name).Name + ".dll");
-                    if (!File.Exists(assemblyPath))
-                    {
+                    if (!File.Exists(assemblyPath)) {
                         Log.Error($"Assembly not found at {assemblyPath}");
                         return null;
                     }
 
                     return Assembly.LoadFrom(assemblyPath);
-                }
-                catch (Exception ex)
-                {
+                } catch(Exception ex) {
                     Log.Error(ex, "Could not load assembly " + e.Name);
                     return null;
                 }
             };
         }
 
-        public void UnloadPlugins()
-        {
+        public void UnloadPlugins() {
             if (this.Plugins == null)
                 return;
 
-            for (var i = 0; i < this.Plugins.Count; i++)
-            {
+            for (var i = 0; i < this.Plugins.Count; i++) {
                 this.Plugins[i].Plugin.Dispose();
             }
 
             this.Plugins.Clear();
         }
 
-        public void LoadPlugins()
-        {
+        public void LoadPlugins() {
             LoadPluginsAt(new DirectoryInfo(this.pluginDirectory), false);
             LoadPluginsAt(new DirectoryInfo(this.devPluginDirectory), true);
         }
 
-        public void DisablePlugin(PluginDefinition definition)
-        {
+        public void DisablePlugin(PluginDefinition definition) {
             var thisPlugin = this.Plugins.Where(x => x.Definition != null)
                                  .First(x => x.Definition.InternalName == definition.InternalName);
 
@@ -98,8 +88,7 @@ namespace Dalamud.Plugin
             this.Plugins.Remove(thisPlugin);
         }
 
-        public bool LoadPluginFromAssembly(FileInfo dllFile, bool raw, PluginLoadReason reason)
-        {
+        public bool LoadPluginFromAssembly(FileInfo dllFile, bool raw, PluginLoadReason reason) {
             Log.Information("Loading plugin at {0}", dllFile.Directory.FullName);
 
             // If this entire folder has been marked as a disabled plugin, don't even try to load anything
@@ -165,8 +154,7 @@ namespace Dalamud.Plugin
                     var plugin = (IDalamudPlugin)Activator.CreateInstance(type);
 
                     // this happens for raw plugins that don't specify a PluginDefinition - just generate a dummy one to avoid crashes anywhere
-                    pluginDef ??= new PluginDefinition
-                    {
+                    pluginDef ??= new PluginDefinition{
                         Author = "developer",
                         Name = plugin.Name,
                         InternalName = Path.GetFileNameWithoutExtension(dllFile.Name),
@@ -197,26 +185,17 @@ namespace Dalamud.Plugin
             return false;
         }
 
-        private void LoadPluginsAt(DirectoryInfo folder, bool raw)
-        {
+        private void LoadPluginsAt(DirectoryInfo folder, bool raw) {
             if (folder.Exists)
-            {
+            { 
                 Log.Information("Loading plugins at {0}", folder);
 
                 var pluginDlls = folder.GetFiles("*.dll", SearchOption.AllDirectories);
 
-                if (pluginDlls == null || pluginDlls.Length == 0)
-                {
-                    return;
-                }
-                foreach (var dllFile in pluginDlls)
-                {
-                    try
-                    {
+                foreach (var dllFile in pluginDlls) {
+                    try {
                         LoadPluginFromAssembly(dllFile, raw, PluginLoadReason.Boot);
-                    }
-                    catch (Exception ex)
-                    {
+                    } catch (Exception ex) {
                         Log.Error(ex, $"Plugin load for {dllFile.FullName} failed.");
                     }
                 }

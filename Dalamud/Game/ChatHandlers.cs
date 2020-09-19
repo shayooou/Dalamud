@@ -11,6 +11,7 @@ using Dalamud.Game.Chat;
 using Dalamud.Game.Chat.SeStringHandling;
 using Dalamud.Game.Chat.SeStringHandling.Payloads;
 using Dalamud.Game.Internal.Libc;
+using Dalamud.Interface;
 using Dalamud.Plugin;
 using Serilog;
 
@@ -208,7 +209,7 @@ namespace Dalamud.Game {
         private void PrintWelcomeMessage() {
             var assemblyVersion = Assembly.GetAssembly(typeof(ChatHandlers)).GetName().Version.ToString();
 
-            this.dalamud.Framework.Gui.Chat.Print(string.Format(Loc.Localize("DalamudWelcome", "Dalamud v{0} loaded."), assemblyVersion));
+            this.dalamud.Framework.Gui.Chat.Print(string.Format(Loc.Localize("DalamudWelcome", "Dalamud vD{0} loaded."), assemblyVersion));
 
             foreach (var plugin in this.dalamud.PluginManager.Plugins)
             {
@@ -224,6 +225,8 @@ namespace Dalamud.Game {
                     MessageBytes = Encoding.UTF8.GetBytes(Loc.Localize("DalamudUpdated", "The In-Game addon has been updated or was reinstalled successfully! Please check the discord for a full changelog.")),
                     Type = XivChatType.Notice
                 });
+
+                this.dalamud.OpenChangelog();
 
                 this.dalamud.Configuration.LastVersion = assemblyVersion;
                 this.dalamud.Configuration.Save();

@@ -7,6 +7,7 @@ using Dalamud.Game.Chat;
 using Dalamud.Game.ClientState;
 using Dalamud.Game.ClientState.Actors.Types;
 using Dalamud.Game.ClientState.Actors.Types.NonPlayer;
+using Dalamud.Game.ClientState.Structs.JobGauge;
 using Dalamud.Plugin;
 using ImGuiNET;
 using JetBrains.Annotations;
@@ -58,8 +59,8 @@ namespace Dalamud.Interface
             ImGui.SameLine();
             var copy = ImGui.Button("Copy all");
             ImGui.SameLine();
-            ImGui.Combo("Data kind", ref this.currentKind, new[] {"ServerOpCode", "ContentFinderCondition", "Actor Table", "Font Test", "Party List", "Plugin IPC", "Condition"},
-                        7);
+            ImGui.Combo("Data kind", ref this.currentKind, new[] {"ServerOpCode", "ContentFinderCondition", "Actor Table", "Font Test", "Party List", "Plugin IPC", "Condition", "Gauge", "Command"},
+                        9);
 
             ImGui.BeginChild("scrolling", new Vector2(0, 0), false, ImGuiWindowFlags.HorizontalScrollbar);
 
@@ -107,7 +108,7 @@ namespace Dalamud.Interface
                                     continue;
 
                                 stateString +=
-                                    $"{actor.Address.ToInt64():X}:{actor.ActorId:X}[{i}] - {actor.ObjectKind} - {actor.Name} - X{actor.Position.X} Y{actor.Position.Y} Z{actor.Position.Z} D{actor.YalmDistanceX} R{actor.Rotation}\n";
+                                    $"{actor.Address.ToInt64():X}:{actor.ActorId:X}[{i}] - {actor.ObjectKind} - {actor.Name} - X{actor.Position.X} Y{actor.Position.Y} Z{actor.Position.Z} D{actor.YalmDistanceX} R{actor.Rotation} - Target: {actor.TargetActorID:X}\n";
 
                                 if (actor is Npc npc)
                                     stateString += $"       DataId: {npc.DataId}  NameId:{npc.NameId}\n";
@@ -152,6 +153,15 @@ namespace Dalamud.Interface
                         }
 
                         ImGui.TextUnformatted(specialChars);
+
+                        foreach (var fontAwesomeIcon in Enum.GetValues(typeof(FontAwesomeIcon)).Cast<FontAwesomeIcon>()) {
+                            ImGui.Text(((int) fontAwesomeIcon.ToIconChar()).ToString("X") + " - ");
+                            ImGui.SameLine();
+
+                            ImGui.PushFont(InterfaceManager.IconFont);
+                            ImGui.Text(fontAwesomeIcon.ToIconString());
+                            ImGui.PopFont();
+                        }
                         break;
 
                     // Party
@@ -247,6 +257,19 @@ namespace Dalamud.Interface
                         if (!didAny)
                         {
                             ImGui.Text("None. Talk to a shop NPC or visit a market board to find out more!!!!!!!");
+                        }
+
+                        break;
+
+                    case 7:
+                        var gauge = this.dalamud.ClientState.JobGauges.Get<ASTGauge>();
+                        ImGui.Text($"Moon: {gauge.ContainsSeal(SealType.MOON)} Drawn: {gauge.DrawnCard()}");
+
+                        break;
+
+                    case 8:
+                        foreach (var command in this.dalamud.CommandManager.Commands) {
+                            ImGui.Text($"{command.Key}\n    -> {command.Value.HelpMessage}\n    -> In help: {command.Value.ShowInHelp}\n\n");
                         }
 
                         break;

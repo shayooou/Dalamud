@@ -11,7 +11,7 @@ namespace Dalamud.Interface
         private const string CreditsTextTempl = @"
 Dalamud
 A FFXIV Hooking Framework
-Version {0}
+Version D{0}
 
 
 created by:
@@ -26,18 +26,37 @@ Wintermute
 fmauNeko
 Caraxi
 Adam
+nibs/Poliwrath
+karashiiro
+Pohky
 
 
 
 Localization by:
 
-Truci
-fmauNeko
-Roy
-karashiiro
+Airiel
+Akira
+area402
+Ridge
+availuzje
+CBMaca
+Delaene
+fang2hou
 Miu
+fmauNeko
 qtBxi
-N30n014
+JasonLucas
+karashiiro
+hibiya
+sayumizumi
+N30N014
+Neocrow
+OhagiYamada
+xDarkOne
+Truci
+Roy
+xenris
+Xorus
 
 
 
